@@ -1,0 +1,90 @@
+% vim: nu expandtab shiftwidth=2 softtabstop=2 foldmethod=marker
+
+\documentclass{article}
+\usepackage{fancyhdr}
+\def\mydate{\leavevmode\hbox{\the\year-\twodigits\month-\twodigits\day}}
+\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
+\title{Exam preparation Guide 1}
+\date{\mydate}
+\author{George Sparrow}
+
+\fancypagestyle{plain}
+{
+  \fancyhf{}
+  \lfoot{\author{George Sparrow}}
+  \cfoot{\thepage}
+  \rfoot{\date{\mydate}}
+  \renewcommand{\headrulewidth}{0pt}
+}
+\pagestyle{plain}
+
+\begin{document}
+\maketitle
+\newpage
+
+Which of the following functions f(n) satifies $f(n)=O(n\log{(n)}$?
+\begin{enumerate}
+\item $f(n) = n^{2}-20n+\log{(n)}$
+  \begin{itemize}
+  \item First we use the limit definition of Big O notation that says $$\lim_{n \to \infty} \frac{f(n)}{g(n)} < \infty$$
+  \item {\large $$\lim_{n \to \infty} \frac{n^{2}-20n+\log{(n)}}{n\log{(n)}} < \infty$$}
+  \item Now we split the numerator using algebra.
+  \item {\large $$\lim_{n \to \infty} \frac{n^{2}}{n\log{(n)}} - \lim_{n \to \infty} \frac{20n}{n\log{(n)}} +\lim_{n \to \infty} \frac{\log{(n)}}{n\log{(n)}} < \infty$$}
+  \item Now we actually divide each of these.
+  \item {\large $$\lim_{n \to \infty} \frac{n}{\log{(n)}} - \lim_{n \to \infty} \frac{20}{\log{(n)}} +\lim_{n \to \infty} \frac{1}{n} < \infty$$}
+  \item Now we can use the limit definition that says $$\lim_{n \to \infty} \frac{1}{n^{a}} = 0$$, where a is some positive number.
+  \item {\large $$\lim_{n \to \infty} \frac{n}{\log{(n)}} -0+0 < \infty$$}
+  \item {\large $$\lim_{n \to \infty} \frac{n}{\log{(n)}} < \infty$$}
+  \item Now, as the numerator and denominator both go to infinity as n goes to infinity, we need to use L'H$\hat{o}$pital's rule. So we take the derivative of the numerator and denominator.
+  \item {\large $$\lim_{n \to \infty} \frac{1}{\frac{1}{n}} < \infty$$}
+  \item {\large $$\lim_{n \to \infty} \frac{\frac{1}{1}}{\frac{1}{n}} < \infty$$}
+  \item {\large $$\lim_{n \to \infty} n < \infty$$}
+  \item Now we can use the limit definition that says $$\lim_{n \to \infty} n = \infty$$, where a is some positive number.
+  \item {\large $$\infty < \infty$$}
+  \item As infinity is not less than infinity (in this case since they are both the same infinity), this is a false statement.
+  \end{itemize}
+\item $f(n) = \log{(n!)}$
+  \begin{itemize}
+  \item First we use the limit definition of Big O notation that says $$\lim_{n \to \infty} \frac{f(n)}{g(n)} < \infty$$
+  \item {\Large $$\lim_{n \to \infty} \frac{\log{(n!)}}{n\log{(n)}} <\infty$$}
+  \item Now we use Stirlings approximation to replace $n!$ with $\sqrt{2n\pi}\left(\frac{n}{e}\right)^{n}$
+  \item {\Large $$\lim_{n \to \infty} \frac{\log{(\sqrt{2n\pi}\left(\frac{n}{e}\right)^{n})}}{n\log{(n)}} <\infty$$}
+  \item Now we use the multiplication rule of logarithms. $\log{a*b} = \log{a} + \log{b}$
+  \item {\Large $$\lim_{n \to \infty} \frac{\log{(\sqrt{2n\pi})}}{n\log{(n)}} \lim_{n \to \infty} \frac{\log{(\left(\frac{n}{e}\right)^{n})}}{n\log{(n)}} <\infty$$}
+  \item Now we use the rule of multiplication for square roots. $\sqrt{a*b} = \sqrt{a}*\sqrt{b}$
+  \item {\Large $$\lim_{n \to \infty} \frac{\log{(\sqrt{2\pi})}}{n\log{(n)}} + \lim_{n \to \infty} \frac{\log{(\sqrt{n})}}{n\log{(n)}} + \lim_{n \to \infty} \frac{\log{(\left(\frac{n}{e}\right)^{n})}}{n\log{(n)}} <\infty$$}
+  \item Now we use the definition of logarithm that says $\log{a^{n}} = n\log{a}$
+  \item {\Large $$\lim_{n \to \infty} \frac{\log{(\sqrt{2\pi})}}{n\log{(n)}} + \lim_{n \to \infty} \frac{(\frac{1}{2})\log{(n)}}{n\log{(n)}} + \lim_{n \to \infty} \frac{n\log{(\frac{n}{e})}}{n\log{(n)}} <\infty$$}
+  \item Now we actually divide these.
+  \item {\Large $$\lim_{n \to \infty} \frac{\log{(\sqrt{2\pi})}}{n\log{(n)}} + \lim_{n \to \infty} \frac{1}{2n} + \lim_{n \to \infty} \frac{n\log{(\frac{n}{e})}}{n\log{(n)}} <\infty$$}
+  \item Now we can use the limit definition that says $$\lim_{n \to \infty} \frac{1}{n^{a}} = 0$$, where a is some positive number.
+  \item {\Large $$\lim_{n \to \infty} \frac{n\log{(\frac{n}{e})}}{n\log{(n)}} + 0 + 0 <\infty$$}
+  \item {\Large $$\lim_{n \to \infty} \frac{n\log{(\frac{n}{e})}}{n\log{(n)}} <\infty$$}
+  \item Now we use the division rule of logarithms. $\log{a/b} = \log{a} - \log{b}$
+  \item {\Large $$\lim_{n \to \infty} \frac{n\log{(n)}}{n\log{(n)}} - \lim_{n \to \infty} \frac{n\log{(e)}}{n\log{(n)}} <\infty$$}
+  \item Now we actually divide these.
+  \item {\Large $$\lim_{n \to \infty} 1 - \lim_{n \to \infty} \frac{\log{(e)}}{\log{(n)}} <\infty$$}
+  \item Now we can use the limit definition that says $$\lim_{n \to \infty} \frac{1}{n^{a}} = 0$$, where a is some positive number.
+  \item {\Large $$\lim_{n \to \infty} 1 - 0 <\infty$$}
+  \item Now we can use the limit definition that says $$\lim_{n \to \infty} c =c$$, where c is some constant.
+  \item $$1 <\infty$$
+  \item As 1 is less than infinity, this is a true statement.
+  \end{itemize}
+\item {\large $\frac{n!}{\log{(n)}}$}
+  \begin{itemize}
+  \item First we use the limit definition of Big O notation that says $$\lim_{n \to \infty} \frac{f(n)}{g(n)} < \infty$$
+  \item {\large $$\lim_{n \to \infty} \frac{n!}{n\log{(n)}\log{(n)}} < \infty$$}
+  \item Now we use Stirlings approximation to replace $n!$ with $\sqrt{2n\pi}(\frac{n}{e})^{n}$
+  \item {\large $$\lim_{n \to \infty} \frac{\sqrt{2n\pi}(\frac{n}{e})^{n}}{n\log{(n)}\log{(n)}} < \infty$$}
+  \item Now we use the rule of multiplication for square roots. $\sqrt{a*b} = \sqrt{a}*\sqrt{b}$
+  \item {\large $$\lim_{n \to \infty} \frac{\sqrt{2\pi}\sqrt{n}(\frac{n}{e})^{n}}{n\log{(n)}\log{(n)}} < \infty$$}
+  \item Now we actually divide.
+  \item {\large $$\lim_{n \to \infty} \frac{\sqrt{2\pi}(\frac{n}{e})^{n}}{n^{\frac{1}{2}}\log{(n)}\log{(n)}} < \infty$$}
+  \item Now we split $\frac{n}{e}^{n}$ into $n^{n}$ and $e^{-n}$.
+  \item {\large $$\lim_{n \to \infty} \frac{\sqrt{2\pi}e^{-n}n^{n-\frac{1}{2}}}{\log{(n)}\log{(n)}} < \infty$$}
+  \item Now, as the numerator and denominator both go to infinity as n goes to infinity, we need to use L'H$\hat{o}$pital's rule. So we take the derivative of the numerator and denominator.
+  \item {\Large $$\lim_{n \to \infty} \frac{\frac{n+n\log{n}-1}{2n}}{
+  \end{itemize}
+\item $f(n) = \sqrt{n^{3}+1}$
+\end{enumerate}
+\end{document}

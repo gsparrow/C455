@@ -1,0 +1,13 @@
+#ignore compiled files
+*.pdf
+*.aux
+*.log
+
+#ignore vim undo files
+*.un~
+
+#ignore Makefiles
+Makefile
+
+#ignore notes
+notes*
