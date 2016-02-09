@@ -6,8 +6,5 @@
 #ignore vim undo files
 *.un~
 
-#ignore Makefiles
-Makefile
-
 #ignore notes
 notes*
