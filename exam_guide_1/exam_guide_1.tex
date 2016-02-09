@@ -83,7 +83,10 @@ Which of the following functions f(n) satifies $f(n)=O(n\log{(n)}$?
   \item Now we split $\frac{n}{e}^{n}$ into $n^{n}$ and $e^{-n}$.
   \item {\large $$\lim_{n \to \infty} \frac{\sqrt{2\pi}e^{-n}n^{n-\frac{1}{2}}}{\log{(n)}\log{(n)}} < \infty$$}
   \item Now, as the numerator and denominator both go to infinity as n goes to infinity, we need to use L'H$\hat{o}$pital's rule. So we take the derivative of the numerator and denominator.
-  \item {\Large $$\lim_{n \to \infty} \frac{\frac{n+n\log{n}-1}{2n}}{
+  \item {\Large $$\lim_{n \to \infty} \frac{e^{-n}n^{n-\frac{3}{2}}(\sqrt{2\pi}n\log{(n)}-\frac{\sqrt{2\pi}}{2})}{\frac{2\log{(n)}}{n}}$$}
+  \item Now we simplify.
+  \item {\Large $$\lim_{n \to \infty} \frac{\sqrt{2\pi}e^{-n}n^{n-\frac{3}{2}}(n\log{(n)}-\frac{1}{2})}{\frac{2\log{(n)}}{n}}$$}
+  \item {\Large $$\lim_{n \to \infty} \frac{\sqrt{2\pi}e^{-n}n^{n-\frac{1}{2}}(n\log{(n)}-\frac{1}{2})}{2\log{(n)}}$$}
   \end{itemize}
 \item $f(n) = \sqrt{n^{3}+1}$
 \end{enumerate}
