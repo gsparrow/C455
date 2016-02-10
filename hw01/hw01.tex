@@ -29,24 +29,27 @@
     \begin{itemize}
     \item [] First we must prove the base case, in this problem, since n must be a positive integer, the base case is where n is equal to 1.
     \item [] {\Large $\sum\limits_{i=1}^{1}i^{3}=\frac{n^{2}(n+1)^{2}}{4}$}
-    \item [] {\Large $1^{3}=\frac{1^{2}(1+1)^{2}}{4}$}
-    \item [] {\Large $1=\frac{1(1+1)^{2}}{4}$}
-    \item [] {\Large $1=\frac{1(2)^{2}}{4}$}
-    \item [] {\Large $1=\frac{1*4}{4}$}
-    \item [] {\Large $1=\frac{4}{4}$}
-    \item [] $1=1$
+    \item [] This equation becomes {\Large $\sum\limits_{i=1}^{1}i^{3}=\frac{1^{2}(1+1)^{2}}{4}$} in this base case.
+    \item [] {\Large $\Leftrightarrow \sum\limits_{i=1}^{1}i^{3}=\frac{1(1+1)^{2}}{4}$}
+    \item [] {\Large $\Leftrightarrow \sum\limits_{i=1}^{1}i^{3}=\frac{1(2)^{2}}{4}$}
+    \item [] {\Large $\Leftrightarrow \sum\limits_{i=1}^{1}i^{3}=\frac{1*4}{4}$}
+    \item [] {\Large $\Leftrightarrow \sum\limits_{i=1}^{1}i^{3}=\frac{4}{4}$}
+    \item [] $\Leftrightarrow \sum\limits_{i=1}^{1}i^{3}=1$
+    \item [] $\Leftrightarrow (1)^{3}=1$
+    \item [] $\Leftrightarrow 1=1$
     \item Since 1 is equal to 1, we proved that the base case is true.
     \item Now is the induction step. Let k be an arbitrary integer greater than 1. Assume {\Large $\sum\limits_{i=1}^{k}i^{3}=\frac{k^{2}(k+1)^{2}}{4}$} We will prove that {\Large $\sum\limits_{i=1}^{k+1}i^{3}=\frac{(k+1)^{2}((k+1)+1)^{2}}{4}$}
     \item We have {\Large $\sum\limits_{i=1}^{k+1}i^{3}=\left( \sum\limits_{i=1}^{k}i^{3} \right) + (k+1)^{3}$}
     \item By the inductive assumption we have {\Large $\sum\limits_{i=1}^{k+1}i^{3}=\left(\frac{k^{2}(k+1)^{2}}{4} \right) + (k+1)^{3}$}
-    \item {\Large $\sum\limits_{i=1}^{k+1}i^{3}=\left(\frac{k^{2}(k^{2}+2k+1)}{4} \right) + (k+1)^{3}$}
-    \item {\Large $\sum\limits_{i=1}^{k+1}i^{3}=\left(\frac{k^{4}+2k^{3}+k^{2}}{4} \right) + (k+1)^{3}$}
-    \item {\Large $\sum\limits_{i=1}^{k+1}i^{3}=\left(\frac{k^{4}+2k^{3}+k^{2}}{4} \right) + (k^{2}+2k+1)(k+1)$}
-    \item {\Large $\sum\limits_{i=1}^{k+1}i^{3}=\left(\frac{k^{4}+2k^{3}+k^{2}}{4} \right) + k^{3}+3k^{2}+3k+1$}
-    \item {\Large $\sum\limits_{i=1}^{k+1}i^{3}=\frac{k^{4}+2k^{3}+k^{2}}{4} + \frac{4k^{3}+12k^{2}+12k+4}{4}$}
-    \item {\Large $\sum\limits_{i=1}^{k+1}i^{3}=\frac{k^{4}+6k^{3}+13k^{2}+12k+4}{4}$}
-    \item {\Large $\sum\limits_{i=1}^{k+1}i^{3}=\frac{(k+1)^{2}(k+2)^{2}}{4}$}
-    \item {\Large $\sum\limits_{i=1}^{k+1}i^{3}=\frac{(k+1)^{2}((k+1)1)^{2}}{4}$}
+    \item [] {\Large $\sum\limits_{i=1}^{k+1}i^{3}=\left(\frac{k^{2}(k^{2}+2k+1)}{4} \right) + (k+1)^{3}$}
+    \item Now we factor $k^{2}+2k+1$ into $(k+1)^{2}$
+    \item [] {\Large $\Leftrightarrow \sum\limits_{i=1}^{k+1}i^{3}=\left(\frac{k^{2}(k+1)^{2}}{4} \right) + (k+1)^{3}$}
+    \item [] {\Large $\Leftrightarrow \sum\limits_{i=1}^{k+1}i^{3}=\left(\frac{k^{2}(k+1)^{2}}{4} \right) + \frac{4(k+1)^{3}}{4}$}
+    \item [] {\Large $\Leftrightarrow \sum\limits_{i=1}^{k+1}i^{3}=\left(\frac{k^{2}(k+1)^{2}+4(k+1)^{3}}{4} \right)$}
+    \item [] {\Large $\Leftrightarrow \sum\limits_{i=1}^{k+1}i^{3}=\left(\frac{(k+1)^{2}(k^{2}+4(k+1)^{1}}{4} \right)$}
+    \item [] {\Large $\Leftrightarrow \sum\limits_{i=1}^{k+1}i^{3}=\left(\frac{(k+1)^{2}(k^{2}+4k+4)}{4} \right)$}
+    \item [] {\Large $\Leftrightarrow \sum\limits_{i=1}^{k+1}i^{3}=\frac{(k+1)^{2}(k+2)^{2}}{4}$}
+    \item [] {\Large $\Leftrightarrow \sum\limits_{i=1}^{k+1}i^{3}=\frac{(k+1)^{2}((k+1)1)^{2}}{4}$}
     \item This proves that {\Large $\sum\limits_{i=1}^{k+1}i^{3}=\frac{(k+1)^{2}((k+1)+1)^{2}}{4}$} holds. By induction, {\Large $\sum\limits_{i=1}^{n}i^{3}=\frac{n^{2}(n+1)^{2}}{4}$} holds for all positive integers.
     \end{itemize}
 
@@ -54,61 +57,56 @@
   \begin{enumerate}
   \item $3n^{2} + 100n + \log{(n)} = O(n^{2})$
     \begin{itemize}
-    \item [] First we use the limit definition of Big O.
-    \item {\Large $$\lim_{n \to \infty} \frac{3n^{2} +100n +\log{(n)}}{n^{2}} < \infty$$}
-    \item [] Now we distribute the denominator.
-    \item {\Large $$\lim_{n \to \infty} \frac{3n^{2}}{n^{2}} + \lim_{n \to \infty} \frac{100n}{n^{2}} + \lim_{n \to \infty} \frac{\log{(n)}}{n^{2}} < \infty$$}
-    \item [] Now we actually divide these.
-    \item {\Large $$\lim_{n \to \infty} 3 + \lim_{n \to \infty} \frac{100}{n} + \lim_{n \to \infty} \frac{\log{(n)}}{n^{2}} < \infty$$}
-    \item [] Now we use the limit definion that says {\Large $$\lim_{n \to \infty} \frac{c}{n^{a}} =0$$} where c and a are positive.
-    \item {\Large $$\lim_{n \to \infty} 3 +0+ \lim_{n \to \infty} \frac{\log{(n)}}{n^{2}} < \infty$$}
-    \item {\Large $$\lim_{n \to \infty} 3 + \lim_{n \to \infty} \frac{\log{(n)}}{n^{2}} < \infty$$}
+    \item [] First we use the limit theorem of Big O which states that $f(n)=O(g(n)) \Leftrightarrow \frac{f(n)}{g(n)} < \infty$.
+    \item [] Hence {\Large $$\lim_{n \to \infty} \frac{3n^{2} +100n +\log{(n)}}{n^{2}} < \infty$$}
+    \item [] {\Large $$\Leftrightarrow \lim_{n \to \infty} \frac{3n^{2}}{n^{2}} + \lim_{n \to \infty} \frac{100n}{n^{2}} + \lim_{n \to \infty} \frac{\log{(n)}}{n^{2}} < \infty$$}
+    \item [] {\Large $$\Leftrightarrow \lim_{n \to \infty} 3 + \lim_{n \to \infty} \frac{100}{n} + \lim_{n \to \infty} \frac{\log{(n)}}{n^{2}} < \infty$$}
+    \item [] Now we use the limit definion that says {\Large $$\lim_{n \to \infty} \frac{c}{n^{a}} =0$$} where c and a are positive constants.
+    \item [] {\Large $$\Leftrightarrow \lim_{n \to \infty} 3 +0+ \lim_{n \to \infty} \frac{\log{(n)}}{n^{2}} < \infty$$}
+    \item [] {\Large $$\Leftrightarrow \lim_{n \to \infty} 3 + \lim_{n \to \infty} \frac{\log{(n)}}{n^{2}} < \infty$$}
     \item [] Now we use the limit definition that says $$\lim_{n \to \infty} c = c$$ where c is some constant.
-    \item {\Large $$3 + \lim_{n \to \infty} \frac{\log{(n)}}{n^{2}} < \infty$$}
+    \item [] Hence {\Large $$3 + \lim_{n \to \infty} \frac{\log{(n)}}{n^{2}} < \infty$$}
     \item [] Since we have a different base, we need to use the change of base formula for logarithms. $log_{b}x =ln(x)/ln(b)$
-    \item {\Large $$3 + \lim_{n \to \infty} \frac{\ln{(n)}}{\ln{2}*n^{2}} < \infty$$}
+    \item [] Hence {\Large $$\Leftrightarrow 3 + \lim_{n \to \infty} \frac{\ln{(n)}}{\ln{2}*n^{2}} < \infty$$}
     \item [] Now, since $$\lim{n \to \infty} \ln{n} = \infty$$, and $$\lim_{n \to \infty} \ln{2}*n^{2} = \infty$$ we use lopitals rule and take the derivative. 
-    \item {\Large $$3 + \lim_{n \to \infty} \frac{1}{2\ln{2}*n^{2}} < \infty$$}
+    \item [] Hence {\Large $$\Leftrightarrow 3 + \lim_{n \to \infty} \frac{1}{2\ln{2}*n^{2}} < \infty$$}
     \item [] Now we use the limit definion that says {\Large $$\lim_{n \to \infty} \frac{c}{n^{a}} =0$$} where c and a are positive.
-    \item {\Large $$3 + 0 < \infty$$}
-    \item {\Large $$3 < \infty$$}
+    \item [] Hence {\Large $$\Leftrightarrow 3 + 0 < \infty$$}
+    \item [] {\Large $$\Leftrightarrow 3 < \infty$$}
     \item As 3 is less than infinity, we have proved that $3n^{2} + 100n + \log{(n)} = O(n^{2})$
     \end{itemize}
   \item $(\sqrt{n} +1)^{8} = O(n^{4})$
     \begin{itemize}
     \item [] Begin by changing the exponent on n
-    \item {\Large{$(n^{\frac{1}{2}} +1)=O(n^{4})$}}
+    \item [] {\Large{$\Leftrightarrow (n^{\frac{1}{2}} +1)=O(n^{4})$}}
     \item [] Then expand the left side.
-    \item {\Large{$n^{4} + 8n^{\frac{7}{2}} +28n^{3} +56n^{\frac{5}{2}} + 70n^{2} +56n^{\frac{3}{2}} +28n +8n^{\frac{1}{2}} +1 = O(n^{4})$}}
-    \item [] Now we use the limit definition of Big O.
-    \item {\Large{$$\lim_{n \to \infty} \frac{n^{4} + 8n^{\frac{7}{2}} +28n^{3} +56n^{\frac{5}{2}} + 70n^{2} +56n^{\frac{3}{2}} +28n +8n^{\frac{1}{2}} +1 = O(n^{4})}{n^{4}} < \infty$$}}
-    \item [] Now we distribute the denominator.
-    $$\lim_{n \to \infty} \frac{n^{4}}{n^{4}} + \lim_{n \to \infty} \frac{8n^{\frac{7}{2}}}{n^{4}} + \lim_{n \to \infty} \frac{28n^{3}}{n^{4}} + \lim_{n \to \infty} \frac{56n^{\frac{5}{2}}}{n^{4}} + \lim_{n \to \infty} \frac{70n^{2}}{n^{4}} + \lim_{n \to \infty} \frac{56n^{\frac{3}{2}}}{n^{4}} + \lim_{n \to \infty} \frac{n}{n^{4}} + \lim{n \to \infty} \frac{8n^{\frac{1}{8}}}{n^{4}} + \lim_{n \to \infty} \frac{1}{n^{4}} < \infty$$
-    \item [] Now we actually divide these.
-    $$\lim_{n \to \infty} 1 + \lim_{n \to \infty} \frac{8}{n^{\frac{1}{2}}} + \lim_{n \to \infty} \frac{28}{n} + \lim_{n \to \infty} \frac{56}{n^{\frac{3}{2}}} + \lim_{n \to \infty} \frac{70}{n^{2}} + \lim_{n \to \infty} \frac{56}{n^{\frac{5}{2}}} + \lim_{n \to \infty} \frac{1}{n^{3}} + \lim{n \to \infty} \frac{8}{n^{\frac{7}{2}}} + \lim_{n \to \infty} \frac{1}{n^{4}} < \infty$$
-    \item [] Now we use the limit definition that says {\Large $$\lim_{n \to \infty} \frac{c}{n^{a}} =0$$} where c and a are positive.
-    \item {\Large{$$\lim_{n \to \infty} 1 +0+0+0+0+0+0+0+0 < \infty$$}}
-    \item {\Large{$$\lim_{n \to \infty} 1 < \infty$$}}
+    \item [] {\Large{$\Leftrightarrow n^{4} + 8n^{\frac{7}{2}} +28n^{3} +56n^{\frac{5}{2}} + 70n^{2} +56n^{\frac{3}{2}} +28n +8n^{\frac{1}{2}} +1 = O(n^{4})$}}
+    \item [] First we use the limit theorem of Big O which states that $f(n)=O(g(n)) \Leftrightarrow \frac{f(n)}{g(n)} < \infty$.
+    \item [] {\Large{$$\Leftrightarrow \lim_{n \to \infty} \frac{n^{4} + 8n^{\frac{7}{2}} +28n^{3} +56n^{\frac{5}{2}} + 70n^{2} +56n^{\frac{3}{2}} +28n +8n^{\frac{1}{2}} +1}{n^{4}} < \infty$$}}
+    \item [] $$\Leftrightarrow \lim_{n \to \infty} \frac{n^{4}}{n^{4}} + \lim_{n \to \infty} \frac{8n^{\frac{7}{2}}}{n^{4}} + \lim_{n \to \infty} \frac{28n^{3}}{n^{4}} + \lim_{n \to \infty} \frac{56n^{\frac{5}{2}}}{n^{4}} + \lim_{n \to \infty} \frac{70n^{2}}{n^{4}} + \lim_{n \to \infty} \frac{56n^{\frac{3}{2}}}{n^{4}} + \lim_{n \to \infty} \frac{n}{n^{4}} + \lim{n \to \infty} \frac{8n^{\frac{1}{8}}}{n^{4}} + \lim_{n \to \infty} \frac{1}{n^{4}} < \infty$$
+    \item [] $$\Leftrightarrow \lim_{n \to \infty} 1 + \lim_{n \to \infty} \frac{8}{n^{\frac{1}{2}}} + \lim_{n \to \infty} \frac{28}{n} + \lim_{n \to \infty} \frac{56}{n^{\frac{3}{2}}} + \lim_{n \to \infty} \frac{70}{n^{2}} + \lim_{n \to \infty} \frac{56}{n^{\frac{5}{2}}} + \lim_{n \to \infty} \frac{1}{n^{3}} + \lim{n \to \infty} \frac{8}{n^{\frac{7}{2}}} + \lim_{n \to \infty} \frac{1}{n^{4}} < \infty$$
+    \item [] Now we use the limit definition that says {\Large $$\lim_{n \to \infty} \frac{c}{n^{a}} =0$$} where c and a are positive constants.
+    \item [] Hence {\Large{$$\lim_{n \to \infty} 1 +0+0+0+0+0+0+0+0 < \infty$$}}
+    \item [] {\Large{$$\Leftrightarrow \lim_{n \to \infty} 1 < \infty$$}}
     \item [] Now we use the limit definition that says $$\lim_{n \to \infty} c = c$$ where c is some constant.
-    \item $1 < \infty$
+    \item [] $\Leftrightarrow 1 < \infty$
     \item As 1 is less than infinity, we have proved that $(\sqrt{n} +1)^{8} =O(n^{4})$
     \end{itemize}
   \end{enumerate}
 
 \item Prove by contradiction that $100n+2\neq O(\sqrt{n})$
   \begin{itemize}
-  \item Suppose that $100n+2 = O \sqrt{n}$
+  \item Suppose that $100n+2 = O(\sqrt{n})$
   \item [] Then we can turn sqare root into a power using its definition.
-  \item {\Large $100n+2 = O n^{\frac{1}{2}}$}
-  \item [] Now we use the limit definition of Big O.
-  \item {\Large $$\lim_{n \to \infty} \frac{100n+2}{n^{\frac{1}{2}}} < \infty$$}
-  \item [] Now we distribute the denominator.
-  \item {\Large $$\lim_{n \to \infty} \frac{100n}{n^{\frac{1}{2}}} + \lim_{n \to \infty} \frac{2}{n^{\frac{1}{2}}} < \infty$$}
-  \item [] Now we use the limit definition that says {\Large $$\lim_{n \to \infty} \frac{c}{n^{a}} =0$$} where c and a are positive.
-  \item {\Large $$\lim_{n \to \infty} \frac{100n}{n^{\frac{1}{2}}} + 0 < \infty$$}
-  \item {\Large $$\lim_{n \to \infty} \frac{100n}{n^{\frac{1}{2}}} < \infty$$}
+  \item [] {\Large $100n+2 = O(n^{\frac{1}{2}})$}
+    \item [] Now we use the limit theorem of Big O which states that $f(n)=O(g(n)) \Leftrightarrow \frac{f(n)}{g(n)} < \infty$.
+  \item [] Hence {\Large $$\lim_{n \to \infty} \frac{100n+2}{n^{\frac{1}{2}}} < \infty$$}
+  \item [] {\Large $$\Leftrightarrow \lim_{n \to \infty} \frac{100n}{n^{\frac{1}{2}}} + \lim_{n \to \infty} \frac{2}{n^{\frac{1}{2}}} < \infty$$}
+  \item [] Now we use the limit definition that says {\Large $$\lim_{n \to \infty} \frac{c}{n^{a}} =0$$} where c and a are positive constats.
+  \item [] Hence {\Large $$\lim_{n \to \infty} \frac{100n}{n^{\frac{1}{2}}} + 0 < \infty$$}
+  \item [] {\Large $$\Leftrightarrow \lim_{n \to \infty} \frac{100n}{n^{\frac{1}{2}}} < \infty$$}
   \item [] Now we use the limit definition that says {\large $$\lim_{n \to \infty} n = \infty$$}
-  \item $\infty < \infty$
+  \item [] Hence $\infty < \infty$
   \item As infinity is not less than infinity, we have proved by contradiction that $100n+2 \neq O(\sqrt{n})$
   \end{itemize}
 \end{enumerate}
