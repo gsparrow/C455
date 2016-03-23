@@ -27,67 +27,117 @@
   \begin{enumerate}
   \item $A_{n}=3A_{n-1}+2^{n}$
     \begin{itemize} %{{{
-    \item The first step is to solve the linear homogeneous relation portion of this equation.
-    \item $A_{n}=3A_{n-1}$
-    \item [] All things in the form $F_{n}=cF_{n-1}$ for all $n\geq1$ where $c_{i}$ is a nonzero constant, are homogeneous linear recurrrence relations.
-    \item [] The general solution to all first order linear homogenous recurrence relations is $F_{n}=F_{0}c^{n}$
-    \item Given that c=3, and $F_{0}=A_{0}$ is not defined, the solution to the linear homogeneous relation is $A_{0}3^{n}$
-    \item [*] In order to prove that this ($A_{0}3^{n}$) is a solution to the recurrence relation ($3A_{n-1}$), we substitute it (into $3A_{n-1}$) in order to attempt to get an identity ($A_{0}3^{n}$).
-    \item [*] $3*(A_{0}3^{n-1})$
-    \item [*] $A_{0}3^{n}$
-    \item [*] Since we have the identity $A_{0}3^{n}$, $A_{0}3^{n}$ is a solution to $3A_{n-1}$
-    \item Now we solve the homogeneous part. Let $A_{n}=c2^{n}$ 
-    \item Since we have $A_{n}=c2^{n}$ we also have $A_{n-1}=c2^{n-1}$
-    \item Now we substitue $A_{n-1}=c2^{n-1}$ and $A_{n}=c2^{n}$ into $A_{n}=3A_{n-1}+2^{n}$ in order to solve for c.
-    \item $c2^{n}=3(c2^{n-1})+2^{n}$
-    \item $c2^{n}=3c2^{n-1}+2^{n}$
-    \item $c2^{n}-2^{n}=3c2^{n-1}$
-    \item $2^{n}(c-1)=3c2^{n-1}$
-    \item $2^{n}(c-1)=\frac{3c2^{n}}{2}$
-    \item $(c-1)=\frac{3c}{2}$
-    \item $2(c-1)=3c$
-    \item $2c-2=3c$
-    \item $2c=3c+2$
-    \item $-1c=2$
-    \item $c=-2$
-    \item Since $c=-2$, this gives us $A_{n}=-2(2^{n})$ which gives us $A_{n}=-2^{n+1}$
-    \item Now, we put it all together.
-    \item $A_{0}3^{n}-2^{n+1}$
-    \item [*] In order to prove that this ($A_{0}3^{n}-2^{n+1}$) is a solution to the nonhomogeneous recurrence relation ($A_{n}=3A_{n-1}+2^{n}$), we substitute it (into $3A_{n-1}+2^{n}$) in order to attempt to get an identity ($A_{0}3^{n}-2^{n+1}$)
-    \item [*] $3(A_{0}3^{n-1}-2^{n-1+1})+2^{n}$
-    \item [*] $3A_{0}3^{n-1}-3*2^{n-1+1}+2^{n}$
-    \item [*] $3A_{0}3^{n-1}-3*2^{n}+2^{n}$
-    \item [*] $A_{0}3^{n}-3*2^{n}+2^{n}$
-    \item [*] $A_{0}3^{n}-2*2^{n}$
-    \item [*] $A_{0}3^{n}-2^{n+1}$
-    \item [*] Since we have the identity $A_{0}3^{n}-2^{n+1}$, $A_{0}3^{n}-2^{n+1}$ is a solution to $A_{n}=3A_{n-1}+2^{n}$
-    \end{itemize} % }}}
-  \item $A_{n}=3A_{n-1}+3^{n}$
-    \begin{itemize} %{{{
-    \item The first step is to solve the linear homogeneous relation portion of this equation.
-    \item $A_{n}=3A_{n-1}$
-    \item [] All things in the form $F_{n}=cF_{n-1}$ for all $n\geq1$ where $c_{i}$ is a nonzero constant, are homogeneous linear recurrrence relations.
-    \item [] The general solution to all first order linear homogenous recurrence relations is $F_{n}=F_{0}c^{n}$
-    \item Given that c=3, and $F_{0}=A_{0}$ is not defined, the solution to the linear homogeneous relation is $A_{0}3^{n}$
-    \item [*] In order to prove that this ($A_{0}3^{n}$) is a solution to the recurrence relation ($3A_{n-1}$), we substitute it (into $3A_{n-1}$) in order to attempt to get an identity ($A_{0}3^{n}$).
-    \item [*] $3*(A_{0}3^{n-1})$
-    \item [*] $A_{0}3^{n}$
-    \item [*] Since we have the identity $A_{0}3^{n}$, $A_{0}3^{n}$ is a solution to $3A_{n-1}$
-    \item Now we solve the homogeneous part. Normally, we would let $A_{n}=c3^{n}$, however, in this case the base ($3$) is equal to the constant multiplier in the homogeneous portion ($3$), and so we use the formula provided in the notes that says when $c=b$ is true, then $nb^{n}$ is the solution. So the solution to the non-homogeneous part is $n3^{n}$
-    \item Now, we put it all together.
-    \item $A_{n}=A_{0}3^{n} + n3^{n}$
-    \item [*] In order to prove that this ($A_{0}3^{n}+n3^{n}$) is a solution to the nonhomogeneous recurrence relation ($A_{n}=3A_{n-1}+3^{n}$), we substitute it (into $3A_{n-1}+3^{n}$) in order to attempt to get an identity ($A_{0}3^{n}+n3^{n}$)
-    \item [*] $3(A_{0}3^{n-1} + (n-1)3^{n-1}) + 3^{n}$
-    \item [*] $3A_{0}3^{n-1} + 3(n-1)3^{n-1} + 3^{n}$
-    \item [*] $A_{0}3^{n} + (n-1)3^{n} + 3^{n}$
-    \item [*] $A_{0}3^{n} + 3^{n}((n-1) + 1)$
-    \item [*] $A_{0}3^{n} + 3^{n}(n-1+1)$
-    \item [*] $A_{0}3^{n} + 3^{n}n$
-    \item [*] $A_{0}3^{n} + n3^{n}$
-    \item [*] Since we have the identity $A_{0}3^{n}+n3^{n}$, $A_{0}3^{n}+n3^{n}$ is a solution to $A_{n}=3A_{n-1}+3^{n}$
+    \item Solving using the general Solution Formula
+      \begin{itemize} %{{{
+      \item The formula is $$F_{n}=c^{n}F_{0} + \sum\limits_{i=0}^{n-1}c^{i}f(n-i)$$
+      \item In this problem, $c=3$ and $f(n)=2^{n}$
+      \item Due to $f(n)=2^{n}$ being an exponential equation, defined by ($f(n)=b^{n}$ where $n\neq0$), we modify the formula. In this case, $b=2$, as $c\neq b$, we modify the formula to be $$F_{n}=c^{n}F_{0} + b^{n}\left(\frac{(\frac{c}{b})^{n}-1}{(\frac{c}{b})-1}\right)$$
+      \item Plugging everything into the formula, we get $$A_{n}=3^{n}A_{0} + 2^{n}\left(\frac{(\frac{3}{2})^{n}-1}{(\frac{3}{2})-1}\right)$$
+      \item [*] In order to prove that this $$A_{n}=3^{n}A_{0} + 2^{n}\left(\frac{(\frac{3}{2})^{n}-1}{(\frac{3}{2})-1}\right)$$ is a solution to the nonhomogeneous recurrence relation ($A_{n}=3A_{n-1}+2^{n}$), we substitute it (into $3A_{n-1}+2^{n}$) in order to attempt to get an identity $$A_{n}=3^{n}A_{0} + 2^{n}\left(\frac{(\frac{3}{2})^{n}-1}{(\frac{3}{2})-1}\right)$$
+      \item [*] $3\left(3^{n-1}A_{0} + 2^{n-1}\left(\frac{(\frac{3}{2})^{n-1}-1}{(\frac{3}{2})-1}\right)\right)+2^{n}$
+      \item [*] $3^{n}A_{0} + 3*2^{n-1}\left(\frac{(\frac{3}{2})^{n-1}-1}{(\frac{3}{2})-1}\right)+2^{n}$
+      \item [*] $3^{n}A_{0} + \frac{2^{n}}{2}*3\left(\frac{(\frac{3}{2})^{n-1}-1}{(\frac{3}{2})-1}\right)+2^{n}$
+      \item [*] $3^{n}A_{0} + 2^{n} \left(\frac{1}{2}*3\left(\frac{(\frac{3}{2})^{n-1}-1}{(\frac{3}{2})-1}\right)+1\right)$
+      \item [*] $3^{n}A_{0} + 2^{n} \left(\frac{1}{2}*3\left(\frac{(\frac{3}{2})^{n-1}-1}{(\frac{1}{2})}\right)+1\right)$
+      \item [*] $3^{n}A_{0} + 2^{n} \left(3\left(\frac{2*3^{n}}{3*2^{n}}-1\right)+1\right)$
+      \item [*] $3^{n}A_{0} + 2^{n} \left(3\left(\frac{2*3^{n}}{3*2^{n}}-\frac{3*2^{n}}{3*2^{n}}\right)+1\right)$
+      \item [*] $3^{n}A_{0} + 2^{n} \left(3\left(\frac{2*3^{n}-3*2^{n}}{3*2^{n}}\right)+1\right)$
+      \item [*] $3^{n}A_{0} + 2^{n} \left(\frac{2*3^{n}-3*2^{n}}{2^{n}}+1\right)$
+      \item [*] $3^{n}A_{0} + 2*3^{n}-3*2^{n}+2^{n}$
+      \item [*] $3^{n}A_{0} + 2*3^{n}-2*2^{n}$
+      \item [*] $3^{n}A_{0} + 2*3^{n}-2^{n+1}$
+      \item [*] $3^{n}A_{0} + 2(3^{n}-2^{n})$
+      \item [*] $3^{n}A_{0} + 2*2^{n}\left(\frac{3^{n}-2^{n}}{2^{n}}\right)$
+      \item [*] $3^{n}A_{0} + 2^{n}\left(\frac{\frac{3^{n}-2^{n}}{2^{n} }}{\frac{1}{2}}\right)$
+      \item [*] $3^{n}A_{0} + 2^{n}\left(\frac{\frac{3^{n}}{2^{n}}-1}{\frac{1}{2}}\right)$
+      \item [*] $3^{n}A_{0} + 2^{n}\left(\frac{\left(\frac{3}{2}\right)^{n}-1}{\frac{1}{2}}\right)$
+      \item [*] $3^{n}A_{0} + 2^{n}\left(\frac{\left(\frac{3}{2}\right)^{n}-1}{\left(\frac{3}{2}\right)-1}\right)$
+      \item [*] Since we have the identity $$3^{n}A_{0} + 2^{n}\left(\frac{\left(\frac{3}{2}\right)^{n}-1}{\left(\frac{3}{2}\right)-1}\right)$$, $$3^{n}A_{0} + 2^{n}\left(\frac{\left(\frac{3}{2}\right)^{n}-1}{\left(\frac{3}{2}\right)-1}\right)$$ is a solution to $A_{n}=3A_{n-1}+2^{n}$
+      \end{itemize} %}}}
+    \item Solving using Parametization of Variables ($f(n)=g(n)+h(n)$). This is the mechanism that allows us to split more complex nonhomogeneous equations into multiple simpler nonhomogeneous equations.
+      \begin{itemize} %{{{
+      \item The first step is to solve the linear homogeneous relation portion of this equation.
+      \item $A_{n}=3A_{n-1}$
+      \item [] All things in the form $F_{n}=cF_{n-1}$ for all $n\geq1$ where $c_{i}$ is a nonzero constant, are homogeneous linear recurrrence relations.
+      \item [] The general solution to all first order linear homogenous recurrence relations is $F_{n}=F_{0}c^{n}$
+      \item Given that c=3, and $F_{0}=A_{0}$ is not defined, the solution to the linear homogeneous relation is $A_{0}3^{n}$
+      \item [*] In order to prove that this ($A_{0}3^{n}$) is a solution to the recurrence relation ($3A_{n-1}$), we substitute it (into $3A_{n-1}$) in order to attempt to get an identity ($A_{0}3^{n}$).
+      \item [*] $3*(A_{0}3^{n-1})$
+      \item [*] $A_{0}3^{n}$
+      \item [*] Since we have the identity $A_{0}3^{n}$, $A_{0}3^{n}$ is a solution to $3A_{n-1}$
+      \item Now we solve the homogeneous part. Let $A_{n}=c2^{n}$ 
+      \item Since we have $A_{n}=c2^{n}$ we also have $A_{n-1}=c2^{n-1}$
+      \item Now we substitue $A_{n-1}=c2^{n-1}$ and $A_{n}=c2^{n}$ into $A_{n}=3A_{n-1}+2^{n}$ in order to solve for c.
+      \item $c2^{n}=3(c2^{n-1})+2^{n}$
+      \item $c2^{n}=3c2^{n-1}+2^{n}$
+      \item $c2^{n}-2^{n}=3c2^{n-1}$
+      \item $2^{n}(c-1)=3c2^{n-1}$
+      \item $2^{n}(c-1)=\frac{3c2^{n}}{2}$
+      \item $(c-1)=\frac{3c}{2}$
+      \item $2(c-1)=3c$
+      \item $2c-2=3c$
+      \item $2c=3c+2$
+      \item $-1c=2$
+      \item $c=-2$
+      \item Since $c=-2$, this gives us $A_{n}=-2(2^{n})$ which gives us $A_{n}=-2^{n+1}$
+      \item Now, we put it all together.
+      \item $A_{0}3^{n}-2^{n+1}$
+      \item [*] In order to prove that this ($A_{0}3^{n}-2^{n+1}$) is a solution to the nonhomogeneous recurrence relation ($A_{n}=3A_{n-1}+2^{n}$), we substitute it (into $3A_{n-1}+2^{n}$) in order to attempt to get an identity ($A_{0}3^{n}-2^{n+1}$)
+      \item [*] $3(A_{0}3^{n-1}-2^{n-1+1})+2^{n}$
+      \item [*] $3A_{0}3^{n-1}-3*2^{n-1+1}+2^{n}$
+      \item [*] $3A_{0}3^{n-1}-3*2^{n}+2^{n}$
+      \item [*] $A_{0}3^{n}-3*2^{n}+2^{n}$
+      \item [*] $A_{0}3^{n}-2*2^{n}$
+      \item [*] $A_{0}3^{n}-2^{n+1}$
+      \item [*] Since we have the identity $A_{0}3^{n}-2^{n+1}$, $A_{0}3^{n}-2^{n+1}$ is a solution to $A_{n}=3A_{n-1}+2^{n}$
+      \end{itemize} % }}}
     \end{itemize} %}}}
+  \item $A_{n}=3A_{n-1}+3^{n}$
+    \begin{itemize}
+    \item Solving using the general Solution Formula
+      \begin{itemize} % {{{
+      \item The formula is $$F_{n}=c^{n}F_{0} + \sum\limits_{i=0}^{n-1}c^{i}f(n-i)$$
+      \item In this problem, $c=3$ and $f(n)=3^{n}$
+      \item Due to $f(n)=3^{n}$ being an exponential equation, defined by ($f(n)=b^{n}$ where $n\neq0$), we modify the formula. In this case, $b=3$, as $c= b$, we modify the formula to be $$F_{n}=c^{n}F_{0} + nb^{n}$$
+      \item Plugging in to the formula, we get $A_{n}=3^{n}A_{0} + n3^{n}$
+      \item [*] In order to prove that this ($A_{0}3^{n}+n3^{n}$) is a solution to the nonhomogeneous recurrence relation ($A_{n}=3A_{n-1}+3^{n}$), we substitute it (into $3A_{n-1}+3^{n}$) in order to attempt to get an identity ($A_{0}3^{n}+n3^{n}$)
+      \item [*] $3(A_{0}3^{n-1} + (n-1)3^{n-1}) + 3^{n}$
+      \item [*] $3A_{0}3^{n-1} + 3(n-1)3^{n-1} + 3^{n}$
+      \item [*] $A_{0}3^{n} + (n-1)3^{n} + 3^{n}$
+      \item [*] $A_{0}3^{n} + 3^{n}((n-1) + 1)$
+      \item [*] $A_{0}3^{n} + 3^{n}(n-1+1)$
+      \item [*] $A_{0}3^{n} + 3^{n}n$
+      \item [*] $A_{0}3^{n} + n3^{n}$
+      \item [*] Since we have the identity $A_{0}3^{n}+n3^{n}$, $A_{0}3^{n}+n3^{n}$ is a solution to $A_{n}=3A_{n-1}+3^{n}$
+      \end{itemize} %}}}
+    \item Solving using Parametization of Variables ($f(n)=g(n)+h(n)$). This is the mechanism that allows us to split more complex nonhomogeneous equations into multiple simpler nonhomogeneous equations.
+      \begin{itemize} %{{{
+      \item The first step is to solve the linear homogeneous relation portion of this equation.
+      \item $A_{n}=3A_{n-1}$
+      \item [] All things in the form $F_{n}=cF_{n-1}$ for all $n\geq1$ where $c_{i}$ is a nonzero constant, are homogeneous linear recurrrence relations.
+      \item [] The general solution to all first order linear homogenous recurrence relations is $F_{n}=F_{0}c^{n}$
+      \item Given that c=3, and $F_{0}=A_{0}$ is not defined, the solution to the linear homogeneous relation is $A_{0}3^{n}$
+      \item [*] In order to prove that this ($A_{0}3^{n}$) is a solution to the recurrence relation ($3A_{n-1}$), we substitute it (into $3A_{n-1}$) in order to attempt to get an identity ($A_{0}3^{n}$).
+      \item [*] $3*(A_{0}3^{n-1})$
+      \item [*] $A_{0}3^{n}$
+      \item [*] Since we have the identity $A_{0}3^{n}$, $A_{0}3^{n}$ is a solution to $3A_{n-1}$
+      \item Now we solve the homogeneous part. Normally, we would let $A_{n}=c3^{n}$, however, in this case the base ($3$) is equal to the constant multiplier in the homogeneous portion ($3$), and so we use the formula provided in the notes that says when $c=b$ is true, then $nb^{n}$ is the solution. So the solution to the non-homogeneous part is $n3^{n}$
+      \item Now, we put it all together.
+      \item $A_{n}=A_{0}3^{n} + n3^{n}$
+      \item [*] In order to prove that this ($A_{0}3^{n}+n3^{n}$) is a solution to the nonhomogeneous recurrence relation ($A_{n}=3A_{n-1}+3^{n}$), we substitute it (into $3A_{n-1}+3^{n}$) in order to attempt to get an identity ($A_{0}3^{n}+n3^{n}$)
+      \item [*] $3(A_{0}3^{n-1} + (n-1)3^{n-1}) + 3^{n}$
+      \item [*] $3A_{0}3^{n-1} + 3(n-1)3^{n-1} + 3^{n}$
+      \item [*] $A_{0}3^{n} + (n-1)3^{n} + 3^{n}$
+      \item [*] $A_{0}3^{n} + 3^{n}((n-1) + 1)$
+      \item [*] $A_{0}3^{n} + 3^{n}(n-1+1)$
+      \item [*] $A_{0}3^{n} + 3^{n}n$
+      \item [*] $A_{0}3^{n} + n3^{n}$
+      \item [*] Since we have the identity $A_{0}3^{n}+n3^{n}$, $A_{0}3^{n}+n3^{n}$ is a solution to $A_{n}=3A_{n-1}+3^{n}$
+      \end{itemize} %}}}
+    \end{itemize}
   \item $A_{n}=3A_{n-1}-2^{n}+10*3^{n}$
     \begin{itemize} %{{{
+    \item Solving using Parametization of Variables ($f(n)=g(n)+h(n)$). This is the mechanism that allows us to split more complex nonhomogeneous equations into multiple simpler nonhomogeneous equations.
     \item The first step is to solve the linear homogeneous relation portion of this equation.
     \item [] All things in the form $F_{n}=cF_{n-1}$ for all $n\geq1$ where $c_{i}$ is a nonzero constant, are homogeneous linear recurrrence relations.
     \item [] The general solution to all first order linear homogenous recurrence relations is $F_{n}=F_{0}c^{n}$
@@ -97,76 +147,151 @@
     \item [*] $3*(A_{0}3^{n-1})$
     \item [*] $A_{0}3^{n}$
     \item [*] Since we have the identity $A_{0}3^{n}$, $A_{0}3^{n}$ is a solution to $3A_{n-1}$
-    \item Now we would normally solve the entire nonhomogenous part, but as this is a complex nonomogeneous part, we can solve each part of it with the homogeneous part in turn. So first now we solve the nonhomogenous relation that is $A_{n}=3A_{n-1}-2^{n}$, and since we have already solved the homogeneous part of it, now we just solve $-2^{n}$. Let $A_{n}=-c2^{n}$
-    \item Since we have $A_{n}=-c2^{n}$ we also have $A_{n-1}=-c2^{n-1}$
-    \item Now we substitue $A_{n-1}=-c2^{n-1}$ and $A_{n}=-c2^{n}$ into $A_{n}=3A_{n-1}-2^{n}$ in order to solve for c.
-    \item $-c2^{n}=3(-c2^{n-1})-2^{n}$
-    \item $-c2^{n}+2^{n}=-3c2^{n-1}$
-    \item $2^{n}(-c+1)=-3c2^{n-1}$
-    \item $2^{n}(-c+1)=-3c2^{-1}2^{n}$
-    \item $-c+1=-3c2^{-1}$
-    \item $-c+1=-\frac{3}{2}c$
-    \item $\frac{1}{2}c+1=0$
-    \item $\frac{1}{2}c=-1$
-    \item $c=-2$
-    \item Since $c=-2$, this gives us $A_{n}=-2(-2^{n})$ which gives us $A_{n}=2^{n+1}$
-    \item Now, we put it together.
-    \item $A_{n}=A_{0}3^{n}+2^{n+1}$
-    \item [*] In order to prove that this ($A_{0}3^{n}+2^{n+1}$) is a solution to the nonhomogeneous recurrence relation ($A_{n}=3A_{n-1}-2^{n}$), we substitute it (into $3A_{n-1}-2^{n}$) in order to attempt to get an identity ($A_{0}3^{n}+2^{n+1}$)
-    \item [*] $3(A_{0}3^{n-1}+2^{n})-2^{n}$
-    \item [*] $3A_{0}3^{n-1}+3*2^{n}-2^{n}$
-    \item [*] $A_{0}3^{n}+3*2^{n}-2^{n}$
-    \item [*] $A_{0}3^{n}+2*2^{n}$
-    \item [*] $A_{0}3^{n}+2^{n+1}$
-    \item [*] Since we have the identity $A_{0}3^{n}+2^{n+1}$, $A_{0}3^{n}+2^{n+1}$ is a solution to $A_{n}=3A_{n-1}-2^{n}$
-    \item Now since we solved one nonhomogeneous part $-2^{n}$, now we solve the other part $10*3^{n}$ Normally, we would let $A_{n}=10c3^{n}$, however, in this case the base ($3$) is equal to the constant multiplier in the homogeneous portion ($3$), and so we use the formula provided in the notes that says when $c=b$ is true, then $nb^{n}$ is the solution. So the solution to the non-homogeneous part is $10n3^{n}$
-    \item Now, we put it together.
-    \item $A_{n}=A_{0}3^{n}+10n3^{n}$
-    \item [*] In order to prove that this ($A_{0}3^{n}+10n3^{n}$) is a solution to the nonhomogeneous recurrence relation ($A_{n}=3A_{n-1}+10*3^{n}$), we substitute it (into $3A_{n-1}+10*3^{n}$) in order to attempt to get an identity ($A_{0}3^{n}+10n3^{n}$)
-    \item [*] $3(A_{0}3^{n-1}+10(n-1)3^{n-1})+10*3^{n}$
-    \item [*] $A_{0}3^{n}+10(n-1)3^{n}+10*3^{n}$
-    \item [*] $A_{0}3^{n}+10*3^{n}((n-1)+1)$
-    \item [*] $A_{0}3^{n}+10*3^{n}(n-1+1)$
-    \item [*] $A_{0}3^{n}+10*3^{n}n$
-    \item [*] $A_{0}3^{n}+10n3^{n}$
-    \item [*] Since we have the identity $A_{0}3^{n}+10n3^{n}$, $A_{0}3^{n}+10n3^{n}$ is a solution to $A_{n}=3A_{n-1}+10*3^{n}$
+    \item Her method using the formula
+      \begin{itemize} %{{{
+      \item Now we solve the simpler homogeneous parts. First we solve $A_{n}=3A_{n-1}-2^{n}$
+      \item The formula is $$F_{n}=c^{n}F_{0} + \sum\limits_{i=0}^{n-1}c^{i}f(n-i)$$
+      \item In this problem, $c=3$ and $f(n)=-2^{n}$
+      \item Due to $f(n)=2^{n}$ being an exponential equation, defined by ($f(n)=b^{n}$ where $n\neq0$), we modify the formula. In this case, $b=-2$, as $c\neq b$, we modify the formula to be $$F_{n}=c^{n}F_{0} + b^{n}\left(\frac{(\frac{c}{b})^{n}-1}{(\frac{c}{b})-1}\right)$$
+      \item Plugging everything into the formula, we get $$A_{n}=3^{n}A_{0} -2^{n}\left(\frac{(\frac{3}{-2})^{n}-1}{(\frac{3}{-2})-1}\right)$$
+      \item [*] In order to prove that this $$A_{n}=3^{n}A_{0} -2^{n}\left(\frac{(\frac{3}{-2})^{n}-1}{(\frac{3}{-2})-1}\right)$$ is a solution to the nonhomogeneous recurrence relation ($A_{n}=3A_{n-1}+2^{n}$), we substitute it (into $3A_{n-1}+2^{n}$) in order to attempt to get an identity $$A_{n}=3^{n}A_{0} -2^{n}\left(\frac{(\frac{3}{-2})^{n}-1}{(\frac{3}{-2})-1}\right)$$
+      \item [*] $3\left(3^{n-1}A_{0} -2^{n-1}\left(\frac{(\frac{3}{-2})^{n-1}-1}{(\frac{3}{-2})-1}\right)\right)-2^{n}$
+      \item [*] $3^{n}A_{0} -3*2^{n-1}\left(\frac{(\frac{3}{-2})^{n-1}-1}{(\frac{3}{-2})-1}\right)-2^{n}$
+      \item [*] $3^{n}A_{0} -3*2^{n-1}\left(\frac{(\frac{3}{-2})^{n-1}-1}{(\frac{5}{-2})}\right)-2^{n}$
+      \item [*] $3^{n}A_{0} -3*2^{n-1}\left(\frac{\frac{3^{n-1}-2^{n-1}}{-2^{n-1} }}{\frac{5}{-2}}\right)-2^{n}$
+      \item [*] $3^{n}A_{0} -3*2^{n-1}\left(\frac{(3^{n-1}-2^{n-1})*(-2)}{-2^{n-1}*(5) }\right)-2^{n}$
+      \item [*] $3^{n}A_{0} +3*\left(\frac{(3^{n-1}-2^{n-1})*(-2)}{5}\right)-2^{n}$
+      \item [*] $3^{n}A_{0} +3*\left(\frac{-2*3^{n-1}+2^{n}}{5}\right)-2^{n}$
+      \item [*] $3^{n}A_{0} +\frac{-2*3^{n}}{5} +\frac{3*2^{n}}{5}-2^{n}$
+      \item [*] $3^{n}A_{0} +\frac{-2*3^{n}}{5} +\frac{3}{5}*2^{n}-2^{n}$
+      \item [*] $3^{n}A_{0} +\frac{-2*3^{n}}{5} -\frac{2}{5}*2^{n}$
+      \item [*] $3^{n}A_{0} -\frac{2}{5}*3^{n} -\frac{2}{5}*2^{n}$
+      \item [*] $3^{n}A_{0} -\frac{2}{5}\left(3^{n}+2^{n}\right)$
+      \item [*] $3^{n}A_{0} -2^{n}(-\frac{2}{5})\left(\frac{3^{n}+2^{n}}{-2^{n}}\right)$
+      \item [*] $3^{n}A_{0} -2^{n}(-\frac{2}{5})\left(\frac{3^{n}}{-2^{n}}-1\right)$
+      \item [*] $3^{n}A_{0} -2^{n}(-\frac{2}{5})\left(\left(\frac{3}{-2}\right)^{n}-1\right)$
+      \item [*] $3^{n}A_{0} -2^{n}\left(\frac{\left(\frac{3}{-2}\right)^{n}-1}{\frac{5}{-2}}\right)$
+      \item [*] $3^{n}A_{0} -2^{n}\left(\frac{\left(\frac{3}{-2}\right)^{n}-1}{\left(\frac{3}{-2}\right)-1}\right)$
+      \item [*] Since we have the identity $$3^{n}A_{0} -2^{n}\left(\frac{\left(\frac{3}{-2}\right)^{n}-1}{\left(\frac{3}{-2}\right)-1}\right)$$, $$3^{n}A_{0} -2^{n}\left(\frac{\left(\frac{3}{-2}\right)^{n}-1}{\left(\frac{3}{-2}\right)-1}\right)$$ is a solution to $A_{n}=3A_{n-1}-2^{n}$
+      \end{itemize} %}}}
+    \item My Method using Parametization of Variables
+      \begin{itemize} %{{{
+      \item Now we would normally solve the entire nonhomogenous part, but as this is a complex nonomogeneous part, we can solve each part of it with the homogeneous part in turn. So first now we solve the nonhomogenous relation that is $A_{n}=3A_{n-1}-2^{n}$, and since we have already solved the homogeneous part of it, now we just solve $-2^{n}$. Let $A_{n}=-c2^{n}$
+      \item Since we have $A_{n}=-c2^{n}$ we also have $A_{n-1}=-c2^{n-1}$
+      \item Now we substitue $A_{n-1}=-c2^{n-1}$ and $A_{n}=-c2^{n}$ into $A_{n}=3A_{n-1}-2^{n}$ in order to solve for c.
+      \item $-c2^{n}=3(-c2^{n-1})-2^{n}$
+      \item $-c2^{n}+2^{n}=-3c2^{n-1}$
+      \item $2^{n}(-c+1)=-3c2^{n-1}$
+      \item $2^{n}(-c+1)=-3c2^{-1}2^{n}$
+      \item $-c+1=-3c2^{-1}$
+      \item $-c+1=-\frac{3}{2}c$
+      \item $\frac{1}{2}c+1=0$
+      \item $\frac{1}{2}c=-1$
+      \item $c=-2$
+      \item Since $c=-2$, this gives us $A_{n}=-2(-2^{n})$ which gives us $A_{n}=2^{n+1}$
+      \item Now, we put it together.
+      \item $A_{n}=A_{0}3^{n}+2^{n+1}$
+      \item [*] In order to prove that this ($A_{0}3^{n}+2^{n+1}$) is a solution to the nonhomogeneous recurrence relation ($A_{n}=3A_{n-1}-2^{n}$), we substitute it (into $3A_{n-1}-2^{n}$) in order to attempt to get an identity ($A_{0}3^{n}+2^{n+1}$)
+      \item [*] $3(A_{0}3^{n-1}+2^{n})-2^{n}$
+      \item [*] $3A_{0}3^{n-1}+3*2^{n}-2^{n}$
+      \item [*] $A_{0}3^{n}+3*2^{n}-2^{n}$
+      \item [*] $A_{0}3^{n}+2*2^{n}$
+      \item [*] $A_{0}3^{n}+2^{n+1}$
+      \item [*] Since we have the identity $A_{0}3^{n}+2^{n+1}$, $A_{0}3^{n}+2^{n+1}$ is a solution to $A_{n}=3A_{n-1}-2^{n}$
+      \end{itemize} %}}}
+    \item Her method using the formula
+      \begin{itemize} %{{{
+      \item Now we solve the other simpler homogeneous part. First we solve $A_{n}=3A_{n-1}+10*3^{n}$
+      \item The formula is $$F_{n}=c^{n}F_{0} + \sum\limits_{i=0}^{n-1}c^{i}f(n-i)$$
+      \item In this problem, $c=3$ and $f(n)=10*3^{n}$
+      \item Due to $f(n)=2^{n}$ being an exponential equation, defined by ($f(n)=b^{n}$ where $n\neq0$), we modify the formula. In this case, $b=3$, as $c=b$, we modify the formula to be $$F_{n}=c^{n}F_{0} + nb^{n}$$
+      \item Plugging everything into the formula, we get $$A_{n}=3^{n}A_{0}+10n*3^{n}$$
+      \item [*] In order to prove that this $$A_{n}=3^{n}A_{0}+10n*3^{n}$$ is a solution to the nonhomogeneous recurrence relation ($A_{n}=3A_{n-1}+10*3^{n}$), we substitute it (into $3A_{n-1}+10*3^{n}$) in order to attempt to get an identity $$A_{n}=3^{n}A_{0}+10n*3^{n}$$
+      \item [*] $3(3^{n-1}A_{0}+10(n-1)3^{n-1})+10*3^{n}$
+      \item [*] $3^{n}A_{0}+10(n-1)3^{n}+10*3^{n}$
+      \item [*] $3^{n}A_{0}+10n*3^{n}-10*3^{n}+10*3^{n}$
+      \item [*] $3^{n}A_{0}+10n*3^{n}$
+      \item [*] Since we have the identity $3^{n}A_{0}+10n3^{n}$, $3^{n}A_{0}+10n3^{n}$ is a solution to $A_{n}=3A_{n-1}+10*3^{n}$
+      \end{itemize} %}}}
+    \item My Method using Parametization of Variables
+      \begin{itemize} %{{{
+      \item Now since we solved one nonhomogeneous part $-2^{n}$, now we solve the other part $10*3^{n}$ Normally, we would let $A_{n}=10c3^{n}$, however, in this case the base ($3$) is equal to the constant multiplier in the homogeneous portion ($3$), and so we use the formula provided in the notes that says when $c=b$ is true, then $nb^{n}$ is the solution. So the solution to the non-homogeneous part is $10n3^{n}$
+      \item Now, we put it together.
+      \item $A_{n}=A_{0}3^{n}+10n3^{n}$
+      \item [*] In order to prove that this ($A_{0}3^{n}+10n3^{n}$) is a solution to the nonhomogeneous recurrence relation ($A_{n}=3A_{n-1}+10*3^{n}$), we substitute it (into $3A_{n-1}+10*3^{n}$) in order to attempt to get an identity ($A_{0}3^{n}+10n3^{n}$)
+      \item [*] $3(A_{0}3^{n-1}+10(n-1)3^{n-1})+10*3^{n}$
+      \item [*] $A_{0}3^{n}+10(n-1)3^{n}+10*3^{n}$
+      \item [*] $A_{0}3^{n}+10*3^{n}((n-1)+1)$
+      \item [*] $A_{0}3^{n}+10*3^{n}(n-1+1)$
+      \item [*] $A_{0}3^{n}+10*3^{n}n$
+      \item [*] $A_{0}3^{n}+10n3^{n}$
+      \item [*] Since we have the identity $A_{0}3^{n}+10n3^{n}$, $A_{0}3^{n}+10n3^{n}$ is a solution to $A_{n}=3A_{n-1}+10*3^{n}$
+      \end{itemize} %}}}
     \item Now that we have solved each piece, we put it all together.
-    \item $A_{n}=A_{0}3^{n}+2^{n+1}+10n3^{n}$
-    \item [*] In order to prove that this ($A_{0}3^{n}+2^{n+1}+10n3^{n}$) is a solution to the nonhomogeneous recurrence relation ($A_{n}=3A_{n-1}-2^{n}+10*3^{n}$), we substitute it (into $3A_{n-1}-2^{n}+10*3^{n}$) in order to attempt to get an identity ($A_{0}3^{n}+2^{n+1}+10n3^{n}$)
-    \item [*] $3(A_{0}3^{n-1}+2^{(n+1)-1}+10(n-1)3^{n-1})-2^{n}+10*3^{n}$
-    \item [*] $3(A_{0}3^{n-1}+2^{n+1-1}+10(n-1)3^{n-1})-2^{n}+10*3^{n}$
-    \item [*] $3(A_{0}3^{n-1}+2^{n}+10(n-1)3^{n-1})-2^{n}+10*3^{n}$
-    \item [*] $A_{0}3^{n}+3*2^{n}+10(n-1)3^{n}-2^{n}+10*3^{n}$
-    \item [*] $A_{0}3^{n}+2*2^{n}+10(n-1)3^{n}+10*3^{n}$
-    \item [*] $A_{0}3^{n}+2^{n+1}+10(n-1)3^{n}+10*3^{n}$
-    \item [*] $A_{0}3^{n}+2^{n+1}+10*3^{n}((n-1)+1)$
-    \item [*] $A_{0}3^{n}+2^{n+1}+10*3^{n}(n-1+1)$
-    \item [*] $A_{0}3^{n}+2^{n+1}+10*3^{n}(n)$
-    \item [*] $A_{0}3^{n}+2^{n+1}+10n3^{n}$
-    \item [*] Since we have the identity $A_{0}3^{n}+2^{n+1}+10n3^{n}$, $A_{0}3^{n}+2^{n+1}+10n3^{n}$ is a solution to $A_{n}=3A_{n-1}-2^{n}+10*3^{n}$
-    \end{itemize} %}}}
+    \item Her method
+      \begin{itemize} %{{{
+      \item $3^{n}A_{0} -2^{n}\left(\frac{\left(\frac{3}{-2}\right)^{n}-1}{\left(\frac{3}{-2}\right)-1}\right) +10n3^{n}$
+      \item [*] In order to prove that this $$3^{n}A_{0} -2^{n}\left(\frac{\left(\frac{3}{-2}\right)^{n}-1}{\left(\frac{3}{-2}\right)-1}\right) +10n3^{n}$$ is a solution to the nonhomogeneous recurrence relation ($A_{n}=3A_{n-1}-2^{n}+10*3^{n}$), we substitute it (into $3A_{n-1}-2^{n}+10*3^{n}$) in order to attempt to get an identity $$3^{n}A_{0} -2^{n}\left(\frac{\left(\frac{3}{-2}\right)^{n}-1}{\left(\frac{3}{-2}\right)-1}\right) +10n3^{n}$$
+      \item [*] $$3\left(3^{n-1}A_{0}-2^{n-1}\left(\frac{\left(\frac{3}{-2}\right)^{n-1}-1}{\left(\frac{3}{-2}\right)-1}\right)+10(n-1)3^{n-1}\right)-2^{n}+10*3^{n}$$
+      \item [*] $$3^{n}A_{0}-3*2^{n-1}\left(\frac{\left(\frac{3}{-2}\right)^{n-1}-1}{\left(\frac{3}{-2}\right)-1}\right)+10(n-1)3^{n}-2^{n}+10*3^{n}$$
+      \item [*] $$3^{n}A_{0}-3*2^{n-1}\left(\frac{\left(\frac{3}{-2}\right)^{n-1}-1}{\left(\frac{3}{-2}\right)-1}\right)+10n3^{n}-10*3^{n}-2^{n}+10*3^{n}$$
+      \item [*] $3^{n}A_{0}-3*2^{n-1}\left(\frac{\left(\frac{3}{-2}\right)^{n-1}-1}{\left(\frac{3}{-2}\right)-1}\right)+10n3^{n}-2^{n}$
+      \item [*] $3^{n}A_{0} -3*2^{n-1}\left(\frac{(\frac{3}{-2})^{n-1}-1}{(\frac{5}{-2})}\right)-2^{n}+10n3^{n}$
+      \item [*] $3^{n}A_{0} -3*2^{n-1}\left(\frac{\frac{3^{n-1}-2^{n-1}}{-2^{n-1} }}{\frac{5}{-2}}\right)-2^{n}+10n3^{n}$
+      \item [*] $3^{n}A_{0} -3*2^{n-1}\left(\frac{(3^{n-1}-2^{n-1})*(-2)}{-2^{n-1}*(5) }\right)-2^{n}+10n3^{n}$
+      \item [*] $3^{n}A_{0} +3*\left(\frac{(3^{n-1}-2^{n-1})*(-2)}{5}\right)-2^{n}+10n3^{n}$
+      \item [*] $3^{n}A_{0} +3*\left(\frac{-2*3^{n-1}+2^{n}}{5}\right)-2^{n}+10n3^{n}$
+      \item [*] $3^{n}A_{0} +\frac{-2*3^{n}}{5} +\frac{3*2^{n}}{5}-2^{n}+10n3^{n}$
+      \item [*] $3^{n}A_{0} +\frac{-2*3^{n}}{5} +\frac{3}{5}*2^{n}-2^{n}+10n3^{n}$
+      \item [*] $3^{n}A_{0} +\frac{-2*3^{n}}{5} -\frac{2}{5}*2^{n}+10n3^{n}$
+      \item [*] $3^{n}A_{0} -\frac{2}{5}*3^{n} -\frac{2}{5}*2^{n}+10n3^{n}$
+      \item [*] $3^{n}A_{0} -\frac{2}{5}\left(3^{n}+2^{n}\right)+10n3^{n}$
+      \item [*] $3^{n}A_{0} -2^{n}(-\frac{2}{5})\left(\frac{3^{n}+2^{n}}{-2^{n}}\right)+10n3^{n}$
+      \item [*] $3^{n}A_{0} -2^{n}(-\frac{2}{5})\left(\frac{3^{n}}{-2^{n}}-1\right)+10n3^{n}$
+      \item [*] $3^{n}A_{0} -2^{n}(-\frac{2}{5})\left(\left(\frac{3}{-2}\right)^{n}-1\right)+10n3^{n}$
+      \item [*] $3^{n}A_{0} -2^{n}\left(\frac{\left(\frac{3}{-2}\right)^{n}-1}{\frac{5}{-2}}\right)+10n3^{n}$
+      \item [*] $3^{n}A_{0} -2^{n}\left(\frac{\left(\frac{3}{-2}\right)^{n}-1}{\left(\frac{3}{-2}\right)-1}\right)+10n3^{n}$
+      \item [*] Since we have the identity $$3^{n}A_{0} -2^{n}\left(\frac{\left(\frac{3}{-2}\right)^{n}-1}{\left(\frac{3}{-2}\right)-1}\right)+10n3^{n}$$, $$3^{n}A_{0} -2^{n}\left(\frac{\left(\frac{3}{-2}\right)^{n}-1}{\left(\frac{3}{-2}\right)-1}\right)+10n3^{n}$$ is a solution to $A_{n}=3A_{n-1}-2^{n}+10*3^{n}$
+      \end{itemize} %}}}
+    \item My Method
+      \begin{itemize} %{{{
+      \item $A_{n}=A_{0}3^{n}+2^{n+1}+10n3^{n}$
+      \item [*] In order to prove that this ($A_{0}3^{n}+2^{n+1}+10n3^{n}$) is a solution to the nonhomogeneous recurrence relation ($A_{n}=3A_{n-1}-2^{n}+10*3^{n}$), we substitute it (into $3A_{n-1}-2^{n}+10*3^{n}$) in order to attempt to get an identity ($A_{0}3^{n}+2^{n+1}+10n3^{n}$)
+      \item [*] $3(A_{0}3^{n-1}+2^{(n+1)-1}+10(n-1)3^{n-1})-2^{n}+10*3^{n}$
+      \item [*] $3(A_{0}3^{n-1}+2^{n+1-1}+10(n-1)3^{n-1})-2^{n}+10*3^{n}$
+      \item [*] $3(A_{0}3^{n-1}+2^{n}+10(n-1)3^{n-1})-2^{n}+10*3^{n}$
+      \item [*] $A_{0}3^{n}+3*2^{n}+10(n-1)3^{n}-2^{n}+10*3^{n}$
+      \item [*] $A_{0}3^{n}+2*2^{n}+10(n-1)3^{n}+10*3^{n}$
+      \item [*] $A_{0}3^{n}+2^{n+1}+10(n-1)3^{n}+10*3^{n}$
+      \item [*] $A_{0}3^{n}+2^{n+1}+10*3^{n}((n-1)+1)$
+      \item [*] $A_{0}3^{n}+2^{n+1}+10*3^{n}(n-1+1)$
+      \item [*] $A_{0}3^{n}+2^{n+1}+10*3^{n}(n)$
+      \item [*] $A_{0}3^{n}+2^{n+1}+10n3^{n}$
+      \item [*] Since we have the identity $A_{0}3^{n}+2^{n+1}+10n3^{n}$, $A_{0}3^{n}+2^{n+1}+10n3^{n}$ is a solution to $A_{n}=3A_{n-1}-2^{n}+10*3^{n}$
+      \end{itemize} %}}}
+    \end{itemize}
   \item $B_{n}=B_{n-1}+cn$, where c is a nonzero constant.
     \begin{itemize}
-    \item The first step is to solve the linear homogeneous relation portion of this equation.
-    \item $B_{n}=B_{n-1}$
-    \item [] All things in the form $F_{n}=cF_{n-1}$ for all $n\geq1$ where $c_{i}$ is a nonzero constant, are homogeneous linear recurrrence relations.
-    \item [] The general solution to all first order linear homogenous recurrence relations is $F_{n}=F_{0}c^{n}$
-    \item Given that c=1, and $B_{0}$ is not defined, the solution to the linear homogeneous relation is $B_{0}$
-    \item [*] In order to prove that this ($B_{0}$) is a solution to the recurrence relation ($B_{n-1}$), we substitute it (into $B_{n-1}$) in order to attempt to get an identity ($B_{0}$).
-    \item [*] $(B_{0})$
-    \item [*] Since we have the identity $B_{0}$, $B_{0}$ is a solution to $B_{n}=B_{n-1}$
-    \item Now we solve the homogeneous part. Normally, we would let $B_{n}=cn$, however, in this case the base ($1$) is equal to the constant multiplier in the homogeneous portion ($1$), and so we use the formula provided in the notes that says when $c=b$ is true, then $nb^{n}$ is the solution. So the solution to the non-homogeneous part is $cn1^{n}$
-    \item $cn1^{n}=cn$
-    \item Now, we put it all together.
-    \item $B_{n}=B_{0}+cn$
-    \item [*] In order to prove that this ($B_{0}3+cn$) is a solution to the nonhomogeneous recurrence relation ($B_{n}=B_{n-1}+cn$), we substitute it (into $B_{n-1}+cn$) in order to attempt to get an identity ($B_{0}+cn$)
-    \item [*] $(B_{0}+c(n-1))+cn$
-    \item [*] $B_{0}+c(n-1)+cn$
-    \item [*] $B_{0}+c((n-1)+1)$
-    \item [*] $B_{0}+c(n-1+1)$
-    \item [*] $B_{0}+c(n)$
-    \item [*] $B_{0}+cn$
-    \item [*] Since we have the identity $B_{0}+cn$, $B_{0}+cn$ is a solution to $B_{n}=B_{n-1}+cn$
+    \item The formula is $$F_{n}=c^{n}F_{0} + \sum\limits_{i=0}^{n-1}c^{i}f(n-i)$$
+    \item In this problem, $c=1$ and $f(n)=cn$
+    \item Plugging in to the formula we get $$B_{n}=1^{n}B_{0} + \sum\limits_{i=0}^{n-1}1^{i}c(n-i)$$
+    \item $$B_{n}=B_{0} + \sum\limits_{i=0}^{n-1}c(n-i)$$
+    \item $$B_{n}=B_{0} + \sum\limits_{i=0}^{n-1}c(n-i)$$
+    \item $$B_{n}=B_{0} + c\sum\limits_{i=0}^{n-1}(n-i)$$
+    \item $$B_{n}=B_{0} + c\sum\limits_{k=1}^{k}(k)$$
+    \item $B_{n}=B_{0} + c\left(\frac{n^{2}+n}{2}\right)$
+    \item $B_{n}=B_{0} + \left(\frac{c\left(n^{2}+n\right)}{2}\right)$
+    \item $B_{n}=B_{0} + \left(\frac{cn\left(n+1\right)}{2}\right)$
+    \item [*] In order to prove that this $$B_{n}=B_{0} + \left(\frac{cn\left(n+1\right)}{2}\right)$$ is a solution to the nonhomogeneous recurrence relation ($B_{n}=B_{n-1}+cn$), we substitute it (into $B_{n}=B_{n-1}+cn$) in order to attempt to get an identity $$B_{n}=B_{0} + \left(\frac{cn\left(n+1\right)}{2}\right)$$
+    \item [*] $\left(B_{0}+\left(\frac{c(n-1)\left((n-1)+1\right)}{2}\right)\right)+cn$
+    \item [*] $B_{0}+\left(\frac{c(n-1)n}{2}\right)+cn$
+    \item [*] $B_{0}+\frac{cn(n-1)}{2}+cn$
+    \item [*] $B_{0}+\frac{1}{2}(n-1)cn+cn$
+    \item [*] $B_{0}+\frac{1}{2}(n-1)cn+cn$
+    \item [*] $B_{0}+\frac{1}{2}cn^{2}-\frac{1}{2}cn+cn$
+    \item [*] $B_{0}+\frac{1}{2}cn^{2}+\frac{1}{2}cn$
+    \item [*] $B_{0}+\frac{1}{2}(cn(n+1))$
+    \item [*] $B_{0}+\left(\frac{cn(n+1)}{2}\right)$
     \end{itemize}
   \end{enumerate}
 %\item Consider the following recurrence relation, which will be used in analyzing the merge-sort algorithm: \\
