@@ -1,27 +1,6 @@
 % vim: nu expandtab shiftwidth=2 softtabstop=2 foldmethod=marker
 
-\documentclass{article}
-\usepackage{fancyhdr}
-\def\mydate{\leavevmode\hbox{\the\year-\twodigits\month-\twodigits\day}}
-\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
-\title{Homework 3}
-\date{\mydate}
-\author{George Sparrow}
-
-\fancypagestyle{plain}
-{
-  \fancyhf{}
-  \lfoot{\author{George Sparrow}}
-  \cfoot{\thepage}
-  \rfoot{\date{\mydate}}
-  \renewcommand{\headrulewidth}{0pt}
-}
-\pagestyle{plain}
-
-\begin{document}
-\maketitle
-\newpage
-
+\section{Homework 3}
 \begin{enumerate}
 \item Find the general solution in closed form to each recurrence relation. For full credits, you need to justify your answers (if you apply some theorem, you need to cite them).
   \begin{enumerate}
@@ -269,14 +248,12 @@
       \item [*] $A_{0}3^{n}+2^{n+1}+10n3^{n}$
       \item [*] Since we have the identity $A_{0}3^{n}+2^{n+1}+10n3^{n}$, $A_{0}3^{n}+2^{n+1}+10n3^{n}$ is a solution to $A_{n}=3A_{n-1}-2^{n}+10*3^{n}$
       \end{itemize} %}}}
-    \end{itemize}
+    \end{itemize} %}}}
   \item $B_{n}=B_{n-1}+cn$, where c is a nonzero constant.
-    \begin{itemize}
+    \begin{itemize} %{{{
     \item The formula is $$F_{n}=c^{n}F_{0} + \sum\limits_{i=0}^{n-1}c^{i}f(n-i)$$
     \item In this problem, $c=1$ and $f(n)=cn$
     \item Plugging in to the formula we get $$B_{n}=1^{n}B_{0} + \sum\limits_{i=0}^{n-1}1^{i}c(n-i)$$
-    \item $$B_{n}=B_{0} + \sum\limits_{i=0}^{n-1}c(n-i)$$
-    \item $$B_{n}=B_{0} + \sum\limits_{i=0}^{n-1}c(n-i)$$
     \item $$B_{n}=B_{0} + c\sum\limits_{i=0}^{n-1}(n-i)$$
     \item $$B_{n}=B_{0} + c\sum\limits_{k=1}^{k}(k)$$
     \item $B_{n}=B_{0} + c\left(\frac{n^{2}+n}{2}\right)$
@@ -292,42 +269,38 @@
     \item [*] $B_{0}+\frac{1}{2}cn^{2}+\frac{1}{2}cn$
     \item [*] $B_{0}+\frac{1}{2}(cn(n+1))$
     \item [*] $B_{0}+\left(\frac{cn(n+1)}{2}\right)$
-    \end{itemize}
+    \end{itemize} %}}}
   \end{enumerate}
-%\item Consider the following recurrence relation, which will be used in analyzing the merge-sort algorithm: \\
-%  $S(0)=1$; $S(1)=1$; $S(n)=S(\lceil \frac{n}{2} \rceil)+1$ for all $n>0$
-%  \begin{enumerate}
-%  \item Find the exact solution to the given recurrence relation, i.e., find a function $f(n)$ such that $S(n) = f(n)$ for all $n \geq 0$. You need to either show your process of finding such a solution or provide function $f(n)$ and prove (by strong induction) that it is a solution to the given recurrence relation. You can use Theorem 2.1.5 (page 12 in the textbook) in your proof, but you need to cite which part of that theorem you are using.
-%    \begin{itemize}
-%    \item First, we will begin by using theorem 2.1.5c that says that $\lfloor\frac{n+1}{2}\rfloor=\lceil\frac{n}{2}\rceil$
-%    \item $S(n)=S(\lfloor\frac{n+1}{2}\rfloor)+1$
-%    \item In order to attempt to solve, we will use forward substitution.
-%    \begin{equation}
-%    S(n)=S(\lfloor\frac{n+1}{2^{2}}\rfloor)+2
-%    \end{equation}
-%    \begin{equation}
-%    S(n)=S(\lfloor\frac{n+1}{2^{3}}\rfloor)+3
-%    \end{equation}
-%    \begin{equation}
-%    S(n)=S(\lfloor\frac{n+1}{2^{k+1}}\rfloor)+k+1
-%    \end{equation}
-%    \item Theorum 2.28b in the notes states that $k=\lfloor\log{(n)}\rfloor$
-%    \item $S(n)=S(\lfloor\frac{n+1}{2^{\lfloor\log{(n)}\rfloor+1}}\rfloor)+\lfloor\log{(n)}\rfloor+1$
-%    \item $$\sum\limits_{i=0}^{\lfloor\log{(n)}\rfloor}i + \sum\limits_{i=0}^{\lfloor\log{(n)}\rfloor}\lfloor\frac{n+1}{2^{i}}\rfloor$$
-%    \item Now is the induction step. Let k be an arbitrary integer. Assume that $$\sum\limits_{i=0}^{\lfloor\log{(k)}\rfloor}i + \sum\limits_{i=0}^{\lfloor\log{(k)}\rfloor}\lfloor\frac{k+1}{2^{i}}\rfloor$$ is a solution to $S(k)=S(\lceil \frac{k}{2} \rceil)+1$. We will prove that $$\sum\limits_{i=0}^{\lfloor\log{(k+1)}\rfloor}i + \sum\limits_{i=0}^{\lfloor\log{(k+1)}\rfloor}\lfloor\frac{k+1+1}{2^{i}}\rfloor$$ is a solution to $S(k+1)=S(\lceil \frac{k+1}{2} \rceil)+1$
-%    \item We have $$\sum\limits_{i=0}^{\lfloor\log{(k)}\rfloor}i + (k+1) + \sum\limits_{i=0}^{\lfloor\log{(k)}\rfloor}\lfloor\frac{k+1}{2^{i}}\rfloor +\lfloor\frac{k+1}{2^{k}}\rfloor$$ is a solution to $S(k)=S(\lceil \frac{k}{2} \rceil)+1$
-%    \item By the induction assumption we have $$\sum\limits_{i=0}^{\lfloor\log{(k)}\rfloor}i +(k+1)+ \sum\limits_{i=0}^{\lfloor\log{(k)}\rfloor}\lfloor\frac{k+1}{2^{i}}\rfloor +\lfloor\frac{k+1}{2^{k+1}}\rfloor$$
-%    \item $$\sum\limits_{i=0}^{\lfloor\log{(k+1)}\rfloor}i + \sum\limits_{i=0}^{\lfloor\log{(k)}\rfloor}\lfloor\frac{k+1}{2^{i}}\rfloor +\lfloor\frac{k+1}{2^{k+1}}\rfloor$$
-%    \item $$\sum\limits_{i=0}^{\lfloor\log{(k+1)}\rfloor}i + \sum\limits_{i=0}^{\lfloor\log{(k+1)}\rfloor}\lfloor\frac{k+1}{2^{i}}\rfloor$$
-%    \item This proves that $$\sum\limits_{i=0}^{\lfloor\log{(k+1)}\rfloor}i + \sum\limits_{i=0}^{\lfloor\log{(k+1)}\rfloor}\lfloor\frac{k+1}{2^{i}}\rfloor$$ is a solution to $S(k)=S(\lceil\frac{k}{2}\rceil)+1$
-%    \end{itemize}
-%  \item Find an Big-Theta formula for the solution to the given recurrence relation, i.e., find a function $g(n)$ such that $S(n) = \theta(g(n))$. Justify your answer.
-%      \begin{itemize}
-%      \item From the slides, $$\sum\limits_{i=0}{\lfloor\log{(n)}\rfloor}\frac{n}{2^i}=\theta(n\log{(n)})$$
-%      \item As the other parts Big O is n, the Big O of this is nlog(n).
-%      \end{itemize}
-%  \end{enumerate}
-%\item Find a Big-Theta formula for the solution to the following recurrence relation: \\
-%  $T(0)=a$; $T(n)=T(\frac{n}{2})+T(\frac{n}{2})+cn$ for all $n>0$ where a and c are nonzero constants. You may use Table 4.3, page 149 in the textbook, but need to justify your answer.
+\item Consider the following recurrence relation, which will be used in analyzing the merge-sort algorithm: \\
+  $S(0)=1$; $S(1)=1$; $S(n)=S(\lceil \frac{n}{2} \rceil)+1$ for all $n>0$
+  \begin{enumerate}
+  \item Find the exact solution to the given recurrence relation, i.e., find a function $f(n)$ such that $S(n) = f(n)$ for all $n \geq 0$. You need to either show your process of finding such a solution or provide function $f(n)$ and prove (by strong induction) that it is a solution to the given recurrence relation. You can use Theorem 2.1.5 (page 12 in the textbook) in your proof, but you need to cite which part of that theorem you are using.
+    \begin{itemize}
+    \item Using backwards substitution
+      \begin{itemize}
+      \item $S(n)=S(\lceil \frac{n}{2} \rceil)+1$
+      \item $S(n)=\left(S\left(\left\lceil \frac{\lceil \frac{n}{2} \rceil}{2} \right\rceil\right)+1\right)+1$ after the first substitution
+      \item Theorem 2.1.5 d says that $\left\lceil\frac{\lceil x \rceil}{n}\right\rceil = \left\lceil\frac{x}{n}\right\rceil$ which allows us to simplify and make it $S(n)=S\left(\lceil \frac{n}{2^{2}} \rceil\right)+2$
+      \item $S(n)=S\left(\left\lceil \frac{\lceil \frac{n}{2^{2}} \rceil}{2} \right\rceil +1 \right)+2$ after the second substitution
+      \item Theorem 2.1.5 d says that $\left\lceil\frac{\lceil x \rceil}{n}\right\rceil = \left\lceil\frac{x}{n}\right\rceil$ which allows us to simplify and make it $S(n)=S\left(\lceil \frac{n}{2^{3}} \rceil\right)+3$
+      \item $S(n)=S\left(\left\lceil \frac{\lceil \frac{n}{2^{3}} \rceil}{2} \right\rceil +1 \right)+3$ after the third substitution
+      \item Theorem 2.1.5 d says that $\left\lceil\frac{\lceil x \rceil}{n}\right\rceil = \left\lceil\frac{x}{n}\right\rceil$ which allows us to simplify and make it $S(n)=S\left(\lceil \frac{n}{2^{4}} \rceil\right)+4$
+      \item $S(n)=S\left(\left\lceil \frac{\lceil \frac{n}{2^{k-1}} \rceil}{2} \right\rceil +1 \right)+k-1$ after the k-1 substitution
+      \item Theorem 2.1.5 d says that $\left\lceil\frac{\lceil x \rceil}{n}\right\rceil = \left\lceil\frac{x}{n}\right\rceil$ which allows us to simplify and make it $S(n)=S\left(\lceil \frac{n}{2^{k}} \rceil\right)+k$
+      \item $S(n)=S\left(\left\lceil \frac{\lceil \frac{n}{2^{k}} \rceil}{2} \right\rceil +1 \right)+k$ after the k substitution
+      \item Theorem 2.1.5 d says that $\left\lceil\frac{\lceil x \rceil}{n}\right\rceil = \left\lceil\frac{x}{n}\right\rceil$ which allows us to simplify and make it $S(n)=S\left(\lceil \frac{n}{2^{k+1}} \rceil\right)+k+1$
+      \end{itemize}
+    \item Now to find k. 
+      \begin{itemize}
+      \item Let k be an integer such that $\left\lceil\frac{n}{2^{k}}\right\rceil=1$ Then $k=\left\lceil\log{n}\right\rceil$ 
+      \end{itemize}
+    \item Plugging k and $\left\lceil\frac{n}{2^{k}}\right\rceil=1$ in, we get $S_{n}=1+\left\lceil\log{n}\right\rceil$
+    \end{itemize}
+  \item Find an Big-Theta formula for the solution to the given recurrence relation, i.e., find a function $g(n)$ such that $S(n) = \theta(g(n))$. Justify your answer.
+      \begin{itemize}
+      \item $\left\lceil\log{n}\right\rceil-1 < \log{n} \leq \left\lceil\log{n}\right\rceil+1$
+      \item $\log{n} \leq \left\lceil\log{n}\right\rceil < \log{n}+1$
+      \item Since $2 \leq \log{n}$ for all $n \geq 4$
+      \end{itemize}
+  \end{enumerate}
 \end{enumerate}
-\end{document}

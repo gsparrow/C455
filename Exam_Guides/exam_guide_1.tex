@@ -1,27 +1,6 @@
 % vim: nu expandtab shiftwidth=2 softtabstop=2 foldmethod=marker
 
-\documentclass{article}
-\usepackage{fancyhdr}
-\def\mydate{\leavevmode\hbox{\the\year-\twodigits\month-\twodigits\day}}
-\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
-\title{Exam preparation Guide 1}
-\date{\mydate}
-\author{George Sparrow}
-
-\fancypagestyle{plain}
-{
-  \fancyhf{}
-  \lfoot{\author{George Sparrow}}
-  \cfoot{\thepage}
-  \rfoot{\date{\mydate}}
-  \renewcommand{\headrulewidth}{0pt}
-}
-\pagestyle{plain}
-
-\begin{document}
-\maketitle
-\newpage
-
+\section{Exam Guide 1}
 Which of the following functions f(n) satifies $f(n)=O(n\log{(n)}$?
 \begin{enumerate}
 \item $f(n) = n^{2}-20n+\log{(n)}$
@@ -90,4 +69,3 @@ Which of the following functions f(n) satifies $f(n)=O(n\log{(n)}$?
   \end{itemize}
 \item $f(n) = \sqrt{n^{3}+1}$
 \end{enumerate}
-\end{document}

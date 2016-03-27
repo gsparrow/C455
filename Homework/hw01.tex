@@ -1,28 +1,6 @@
 % vim: nu expandtab shiftwidth=2 softtabstop=2 foldmethod=marker
 
-\documentclass{article}
-\usepackage{fancyhdr}
-\usepackage[margin=0.5in]{geometry}
-\def\mydate{\leavevmode\hbox{\the\year-\twodigits\month-\twodigits\day}}
-\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
-\title{Homework 1}
-\date{\mydate}
-\author{George Sparrow}
-
-\fancypagestyle{plain}
-{
-  \fancyhf{}
-  \lfoot{\author{George Sparrow}}
-  \cfoot{\thepage}
-  \rfoot{\date{\mydate}}
-  \renewcommand{\headrulewidth}{0pt}
-}
-\pagestyle{plain}
-
-\begin{document}
-\maketitle
-\newpage
-
+\section{Homework 1}
 \begin{enumerate}
 \item Prove by induction that for any positive integer n, \\
   {\Large $\sum\limits_{i=1}^{n}i^{3}=\frac{n^{2}(n+1)^{2}}{4}$}
@@ -110,4 +88,3 @@
   \item As infinity is not less than infinity, we have proved by contradiction that $100n+2 \neq O(\sqrt{n})$
   \end{itemize}
 \end{enumerate}
-\end{document}

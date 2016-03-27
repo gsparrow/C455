@@ -1,0 +1,49 @@
+% vim: nu expandtab shiftwidth=2 softtabstop=2 foldmethod=marker
+
+\section{Exam Guide 2}
+\begin{enumerate}
+\item [] Find the general solution in closed form to each recurrence relation. For full credits, you need to justify your answers (if you apply some theorem, you need to cite them).
+\item $A_{n}=A_{n-1}-3^{n}+7n$
+  \begin{itemize}
+  \item First, we solve the homogeneous part, $A_{n}=A_{n-1}$
+    \begin{itemize}
+    \item The solution is $A_{n}=A_{0}$
+    \end{itemize}
+  \item Now, split it into simpler heterogeneous equations, and then combine them later. $A_{n}=A_{n-1}-3^{n}$ and $A_{n}=A_{n-1}+7n$
+  \item $A_{n}=A_{n-1}-3^{n}$
+    \begin{itemize}
+    \item The formula is $$F_{n}=c^{n}F_{0} + \sum\limits_{i=0}^{n-1}c^{i}f(n-i)$$
+    \item In this problem, $c=1$ and $f(n)=-3^{n}$
+    \item Due to $f(n)=-3^{n}$ being an exponential equation, defined by ($f(n)=b^{n}$ where $n\neq0$), we modify the formula. In this case, $b=-3$, as $c\neq b$, we modify the formula to be $$F_{n}=c^{n}F_{0} + b^{n}\left(\frac{(\frac{c}{b})^{n}-1}{(\frac{c}{b})-1}\right)$$
+    \item Plugging everything into the formula, we get $$A_{n}=1^{n}A_{0} - 3^{n}\left(\frac{(\frac{1}{-3})^{n}-1}{(\frac{1}{-3})-1}\right)$$
+    \end{itemize}
+  \item $A_{n}=A_{n-1}+7n$
+    \begin{itemize}
+    \item The formula is $$F_{n}=c^{n}F_{0} + \sum\limits_{i=0}^{n-1}c^{i}f(n-i)$$
+    \item In this problem, $c=1$ and $f(n)=7n$
+    \item Plugging everything into the formula, we get $$F_{n}=1^{n}F_{0} + \sum\limits_{i=0}^{n-1}1^{i}7(n-i)$$
+    \item $$F_{n}=F_{0} + \sum\limits_{i=0}^{n-1}7(n-i)$$
+    \item $$F_{n}=F_{0} + 7\sum\limits_{i=0}^{n-1}(n-i)$$
+    \item $F_{n}=F_{0} + 7\left(\frac{n^{2}+n}{2}\right)$
+    \item $F_{n}=F_{0} + 7\left(\frac{n\left(n+1\right)}{2}\right)$
+    \item $F_{n}=F_{0} + \left(\frac{7n\left(n+1\right)}{2}\right)$
+    \end{itemize}
+  \item Now we put it all together and get the solution.
+  \item $A_{n}=A_{0}-3^{n}\left(\frac{(\frac{1}{-3})^{n}-1}{(\frac{1}{-3}-1}\right)+\left(\frac{7n\left(n+1\right)}{2}\right)$
+  \end{itemize} 
+\item $F(n)=b*F\left(\left\lfloor\frac{n}{2}\right\rfloor\right)+cn+a$
+  \begin{itemize}
+  \item Use substitution $a=d$, $b=e$, $c=f$ in order to avoide conflicts with common variables in formulas
+  \item $F(n)=e*F\left(\left\lfloor\frac{n}{2}\right\rfloor\right)+fn+d$
+  \item $F\left(\left\lfloor\frac{n}{2}\right\rfloor\right)=e*F\left(\left\lfloor\frac{\left\lfloor\frac{n}{2}\right\rfloor}{2}\right\rfloor\right)+f\left\lfloor\frac{n}{2}\right\rfloor+d$ after the first substitution
+  \item $F\left(\left\lfloor\frac{n}{2}\right\rfloor\right)=e*F\left(\left\lfloor\frac{n}{2^{2}}\right\rfloor\right)+f\left\lfloor\frac{n}{2}\right\rfloor+d$
+  \item Then $F\left(\left\lfloor\frac{n}{2}\right\rfloor\right)=e^{2}*F\left(\left\lfloor\frac{n}{2^{2}}\right\rfloor\right)+ef\left\lfloor\frac{n}{2}\right\rfloor+fn+ed+d$
+  \item $F\left(\left\lfloor\frac{n}{2^{2}}\right\rfloor\right)=e^{2}*F\left(\left\lfloor\frac{\left\lfloor\frac{n}{2^{2}}\right\rfloor}{2}\right\rfloor\right)+ef\left\lfloor\frac{n}{2^{2}}\right\rfloor+d$ after the second substitution
+  \item $F\left(\left\lfloor\frac{n}{2^{2}}\right\rfloor\right)=e^{2}*F\left(\left\lfloor\frac{n}{2^{3}}\right\rfloor\right)+ef\left\lfloor\frac{n}{2^{2}}\right\rfloor+d$
+  \item Then $F\left(\left\lfloor\frac{n}{2^{2}}\right\rfloor\right)=e^{3}*F\left(\left\lfloor\frac{n}{2^{3}}\right\rfloor\right)+e^{2}f\left\lfloor\frac{n}{2^{2}}\right\rfloor++ef\left\lfloor\frac{n}{2}\right\rfloor+fn+e^{2}d+ed+d$
+  \item $F(n)=e^{k}*F\left(\left\lfloor\frac{\left\lfloor\frac{n}{2^{k}}\right\rfloor}{2}\right\rfloor\right)+\sum\limits_{i=0}^{k-1}e^{i}f\left\lfloor\frac{n}{2^{i}}\right\rfloor+\sum\limits_{i=0}^{k-1}e^{i}d$ after the k-1 substitution
+  \item Now to get the exact solution. $k=\left\lfloor\log{n}\right\rfloor$, and $F\left(\left\lfloor\frac{n}{2^{k}}\right\rfloor\right)=a$ for some constant a.
+  \item $F(n)=e^{\lfloor\log{n}\rfloor}a+\sum\limits_{i=0}^{\lfloor\log{n}\rfloor-1}e^{i}f\left\lfloor\frac{n}{2^{i}}\right\rfloor+\sum\limits_{i=0}^{\lfloor\log{n}\rfloor-1}e^{i}d$
+  \end{itemize}
+\item $F(n)=G(n+1)$ $F(n)=bF\left(\left\lfloor\frac{n-1}{2}\right\rfloor\right)+f(n)$ where $n>0$
+\end{enumerate}

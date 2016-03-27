@@ -1,27 +1,6 @@
 % vim: nu expandtab shiftwidth=2 softtabstop=2 foldmethod=marker
 
-\documentclass{article}
-\usepackage{fancyhdr}
-\def\mydate{\leavevmode\hbox{\the\year-\twodigits\month-\twodigits\day}}
-\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
-\title{Homework 2}
-\date{\mydate}
-\author{George Sparrow}
-
-\fancypagestyle{plain}
-{
-  \fancyhf{}
-  \lfoot{\author{George Sparrow}}
-  \cfoot{\thepage}
-  \rfoot{\date{\mydate}}
-  \renewcommand{\headrulewidth}{0pt}
-}
-\pagestyle{plain}
-
-\begin{document}
-\maketitle
-\newpage
-
+\section{Homework 2}
 \begin{enumerate}
 \item For each recurrence relation below, determine if it is linear. If it it linear, determine all the non-zero coefficients and the nonhomogeneous term (if exists) of the recurrence relation.
   \begin{enumerate}
@@ -116,4 +95,3 @@ where $\alpha_{1}$ and $\alpha_{2}$ are any constants.
     \end{itemize}
   \end{enumerate}
 \end{enumerate}
-\end{document}

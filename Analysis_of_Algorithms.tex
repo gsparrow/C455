@@ -1,0 +1,42 @@
+% vim: nu expandtab shiftwidth=2 softtabstop=2 autoindent foldmethod=marker
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{multirow}   %helps with tables, allows for multiple rows to combine
+\usepackage{amssymb}    %allows for the use of \square which makes a blank square in long multiplication
+\usepackage[hidelinks, letterpaper, pagebackref, bookmarksopen, bookmarksnumbered]{hyperref} %makes table of contents
+\usepackage{bookmark}                                                                        %helps with table of contents
+\usepackage{import}
+\def\mydate{\leavevmode\hbox{\the\year-\twodigits\month-\twodigits\day}}
+\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
+\title{Everything you need to know for C455}
+\date{\mydate}
+\author{The defeated souls of 10,000 students}
+
+\fancypagestyle{plain}
+{
+  \fancyhf{}
+  \lfoot{\author{The defeated souls of 10,000 students}}
+  \cfoot{\thepage}
+  \rfoot{\date{\mydate}}
+  \renewcommand{\headrulewidth}{0pt}
+}
+\pagestyle{plain}
+
+\begin{document}
+\maketitle
+\newpage
+\pdfbookmark[section]{\contentsname}{toc}
+\tableofcontents
+
+\newpage
+\include{Homework/hw01}
+
+\include{Exam_Guides/exam_guide_1}
+
+\include{Homework/hw02}
+
+\include{Homework/hw03}
+
+\include{Exam_Guides/exam_guide_2}
+
+\end{document}

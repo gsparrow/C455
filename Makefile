@@ -1,4 +1,4 @@
-SRCC=$(shell ls *.tex)
+SRCC=Analysis_of_Algorithms.tex
 EXEC=$(SRCC:.tex=.pdf)
 
 all: compile view
