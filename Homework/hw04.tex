@@ -1,0 +1,97 @@
+% vim: nu expandtab shiftwidth=2 softtabstop=2 foldmethod=marker
+\section{Homework 4}
+
+\lstset{language=C++,
+	frame=tb,
+	tabsize=2,
+	showstringspaces=false,
+	commentstyle=\color{green},
+	keywordstyle=\color{blue},
+	stringstyle =\color{red}}
+
+Your answer to each complexity analysis exercise above needs to conclude with an asymptotic formula for the complexity you are analyzing.
+
+\begin{enumerate}
+\item [5.1.16] Here is a function that returns the smallest divisor, other than 1, of an integer n greater than 1. It uses the same ideas as those used in Example 5.1.8. \\
+\begin{lstlisting}
+int smallest\_nontrivial\_divisor (int n)
+{
+  if (n <= 1) //We don't want to deal with integers <1, so if
+    return 0; //such an integer is given, return a nonsense answer.
+  else
+  {
+   int k;
+   for (k=2; k*k <= n; ++k)
+     if (n%k==0) //If n is divisible by k then we have
+       return k; // found the divisor we are looking for.
+
+    // If the loop ends without finding a divisor less than or
+    // equal to the square root of n, then n must be prime,
+    // so its only divisor aside from 1 is n.
+    return n;
+  }
+}
+\end{lstlisting}
+Analyze the space requirement and the execution time of a call to this function.
+  \begin{itemize}
+  \item \textbf{Space requirement:} In the \textbf{Best Case}, \textbf{Worst Case}, and \textbf{Average Case}, this function uses $\Theta(1)$ as there is a constant number of variables. While the variables are modified a non constant number of times, this in no way affects the space requirements.
+  \item \textbf{Time requirement:} In the \textbf{Best Case}, the execution time is O(1) as it returns from the first if statement.
+  \item \textbf{Time requirement:} In the \textbf{Worst Case}, the execution time is $O\left(\left\lfloor\sqrt{n}\right\rfloor\right)$.
+  \item \textbf{Time requirement:} In the \textbf{Average Case}, the execution time is the same as the \textbf{Worst Case} multiplied by some constant, so it is $O\left(\left\lfloor\sqrt{n}\right\rfloor\right)$ as well.
+  \end{itemize}
+
+\item [5.1.17] Analyze the execution time for each of the following code fragments. In each case assume that the program variable n has already been declared and given a positive value n. Here, as elsewhere, the phrase “X is bounded by constants” means that there exist positive constants A and B such that $A\leq X\leq B$.
+  \begin{enumerate}
+  \item [] b)
+\begin{lstlisting} 
+int k, j;
+for (k=0; k<n*n; ++k)
+  for (j=n; j >= 1; -j)
+  {
+    //The execution time for the body of this loop is bounded by 
+    // constants.
+  }
+\end{lstlisting}
+      \begin{itemize}
+      \item \textbf{Worst Case}, \textbf{Best case}, and \textbf{Average Case} are the same in this algorithm due to the lack of an extra conditional.
+      \item The outer loop is executed $n^{2}$ times
+      \item The inner loop is executed $n$ times per outer loop
+      \item Thus the solution is that the time complexity is $\Theta\left(n^{3}\right)$
+      \end{itemize}
+  \item [] d)
+\begin{lstlisting}
+int k, j;
+for (k=1; k\leq n; ++k)
+  for (j=1; j*j\leq n; ++j)
+  {
+    //The execution time for the body of this loop is bounded by 
+    // constants.
+  }
+\end{lstlisting}
+      \begin{itemize}
+      \item \textbf{Worst Case}, \textbf{Best case}, and \textbf{Average Case} are the same in this algorithm due to the lack of an extra conditional.
+      \item The outer loop is executed $n$ times
+      \item The inner loop is executed $\left\lfloor\sqrt{n}\right\rfloor$ times per outer loop
+      \item Thus the solution is that the time complexity is $\left\lfloor n^{\frac{3}{2}}\right\rfloor$
+      \end{itemize}
+  \item [] e)
+\begin{lstlisting}
+int k, j;
+for (k=1; k<= n; ++k)
+  for (j=1; j*j >= k; ++j)
+  {
+    //The execution time for the body of this loop is bounded by
+    // constants.
+  }
+\end{lstlisting}
+      \begin{itemize}
+      \item \textbf{Worst Case}, \textbf{Best case}, and \textbf{Average Case} are the same in this algorithm due to the lack of an extra conditional.
+      \item The outer loop is executed $n$ times.
+      \item The inner loop is executed $\left\lceil\sqrt{k}\right\rceil$ times per outer loop.
+      \item Since we are looking for the upper bound, we can say that $1 < k < n$
+      \item The inner loop in terms of n is excuted at most $\displaystyle \sum\limits_{i=1}^{n}i$ times per outer loop.
+      \item The inner loop in terms of n in closed form is excuted at most $\frac{n(n+1)}{2}$
+      \item Thus the solution is that the time complexity is $O(n^{3})$
+      \end{itemize}
+  \end{enumerate}
+\end{enumerate}

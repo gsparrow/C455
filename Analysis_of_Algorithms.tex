@@ -6,6 +6,11 @@
 \usepackage[hidelinks, letterpaper, pagebackref, bookmarksopen, bookmarksnumbered]{hyperref} %makes table of contents
 \usepackage{bookmark}                                                                        %helps with table of contents
 \usepackage{import}
+\usepackage{xcolor,colortbl} %lets me make colored rows and columns in tables
+\usepackage{listings} %lets me input c++ code easily
+
+%\includeonly{Notes/deterministic_algorithm_analysis}
+
 \def\mydate{\leavevmode\hbox{\the\year-\twodigits\month-\twodigits\day}}
 \def\twodigits#1{\ifnum#1<10 0\fi\the#1}
 \title{Everything you need to know for C455}
@@ -39,4 +44,7 @@
 
 \include{Exam_Guides/exam_guide_2}
 
+\include{Notes/deterministic_algorithm_analysis}
+
+\include{Homework/hw04}
 \end{document}
