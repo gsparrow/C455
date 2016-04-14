@@ -35,9 +35,12 @@ int smallest\_nontrivial\_divisor (int n)
 Analyze the space requirement and the execution time of a call to this function.
   \begin{itemize}
   \item \textbf{Space requirement:} In the \textbf{Best Case}, \textbf{Worst Case}, and \textbf{Average Case}, this function uses $\Theta(1)$ as there is a constant number of variables. While the variables are modified a non constant number of times, this in no way affects the space requirements.
-  \item \textbf{Time requirement:} In the \textbf{Best Case}, the execution time is O(1) as it returns from the first if statement.
-  \item \textbf{Time requirement:} In the \textbf{Worst Case}, the execution time is $O\left(\left\lfloor\sqrt{n}\right\rfloor\right)$.
-  \item \textbf{Time requirement:} In the \textbf{Average Case}, the execution time is the same as the \textbf{Worst Case} multiplied by some constant, so it is $O\left(\left\lfloor\sqrt{n}\right\rfloor\right)$ as well.
+  \item \textbf{Time requirement:} In the \textbf{Best Case}, the execution time is O(1) as it returns from the if statement. You might think that I mean the "if (n <=1)", but I mean "if (n\%k==)", meaning n is an even number. This is because it has to work for any size n, not just small n, and most of the time when analyzing algorithms, we are talking about large n.
+  \item \textbf{Time requirement:} In the \textbf{Worst Case}, the execution time is $O\left(\left\lfloor\sqrt{n}\right\rfloor\right)$. 
+    \begin{itemize}
+    \item The worst case is the maximum number of iterations needed to go through the algorithm, and in this case also means the maximum number of iterations needed to go through the loop. The loop itself needs to go n iterations through the loop, but its checking not if k<=n, but k*k<=n, which means that its going the square root of n times through the loop. You might notice that the loop starts at 2 rather than 1, which does indead modify the number of times it goes through the loop, but only by a constant number. This constant number is meaningless in the context of algorithm analysis, and so we ignore it. Then we note that in c++ and c, we cannot actually take the square root of a number in an integer class data type. Instead, we can only take the floor of a square root, as it ignore all decimal places rather than rounding them. This is due to older cpu designs, and continues to be in place for compatibility. Because of the language syntax we just noted, it is not the square root of n, but is actually the floor of the square root of n.
+    \end{itemize}
+  \item \textbf{Time requirement:} In the \textbf{Average Case}, the execution time is the same as the \textbf{Worst Case} multiplied by some constant, so it is $O\left(\left\lfloor\sqrt{n}\right\rfloor\right)$ as well. This is because constants are ignored in algorithm analysis.
   \end{itemize}
 
 \item [5.1.17] Analyze the execution time for each of the following code fragments. In each case assume that the program variable n has already been declared and given a positive value n. Here, as elsewhere, the phrase “X is bounded by constants” means that there exist positive constants A and B such that $A\leq X\leq B$.

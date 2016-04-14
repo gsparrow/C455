@@ -1,0 +1,118 @@
+% vim: nu expandtab shiftwidth=2 softtabstop=2 foldmethod=marker
+
+\definecolor{LightCyan}{rgb}{0,1,1}
+\definecolor{DarkCyan}{rgb}{0,0.88,0.88}
+\lstset{language=C++,
+	frame=tb,
+	tabsize=2,
+	showstringspaces=false,
+	commentstyle=\color{green},
+	keywordstyle=\color{blue},
+	stringstyle =\color{red}}
+
+\subsection{Loop Analysis}
+\item Time Complexity of Loops
+  \begin{itemize}
+  \item Time complexity function of a loop is determined by
+    \begin{itemize}
+    \item The total number of iterations
+    \item The number of basic operations in each iteration
+    \end{itemize}
+  \item Example 1:
+\begin{lstlisting}[mathescape=true]
+double max(double a[], int n) //array is passed as pointer
+{
+double currentMax=a[0];    //basic operation
+for (int i=0; i<n; i++)  //(n-1) iterations in any case
+  if (a[i] > currentMax) //basic operation
+    currentMax=a[i];
+return currentMax; // basic operation
+} //total time complexity $\color{green}\Theta(n)$
+\end{lstlisting}
+  \end{itemize}
+\item Time Complexity of Loops: \\
+      Worst Case v.s. Best Case
+  \begin{itemize}
+  \item Example 2: linear search 
+\begin{lstlisting}
+int linearSearch(const double a[], int n, double key)
+{
+  for(int i=0; i<n; i++)
+    if(a[i]==key)
+      return i; //key is found at index i
+  return -1; //not found
+}
+\end{lstlisting}
+    \begin{itemize} 
+    \item \textbf{Worst Case}: happens when key is in the last position or not in the array $\rightarrow f(n)=\Theta(n)$
+    \item \textbf{Best Case}: happens when key is at index 0 $\rightarrow f(n)=\Theta(1)$
+    \end{itemize}
+  \end{itemize}
+\item Counting Iterations of Nested Loops
+  \begin{itemize}
+  \item \textbf{Easy Case:}
+    \begin{itemize}
+    \item if the number of iterations for the inner loop does not depend on the control variable for the outer loop
+    \end{itemize}
+  \item \textbf{Example 3:}
+\begin{lstlisting}
+for (i=1; i*i<=n; i++)
+  for (j=0; j<n; j++)
+    //inner loop body
+\end{lstlisting}
+    \begin{itemize}
+    \item Outer loop: $\left\lfloor\sqrt{n}\right\rfloor$
+    \item Inner loop: n iterations in any iteration of the outer loop
+    \item Total number of iterations $\left\lfloor\sqrt{n}\right\rfloor n=\Theta\left(n^{\frac{3}{2}}\right)$
+    \end{itemize}
+  \end{itemize}
+\item Counting Iterations of Nested Loops
+  \begin{itemize}
+  \item \textbf{Harder case:}
+    \begin{itemize}
+    \item if the number of iterations for the inner loop depends on the control variable for the outer loop
+    \end{itemize}
+  \item \textbf{Example 4:}
+\begin{lstlisting}
+for (i=1; i*i<=n; i++)
+  for (j=0; j<i; j++)
+    //inner loop body
+\end{lstlisting}
+    \begin{itemize}
+    \item Outer loop: $\left\lfloor\sqrt{n}\right\rfloor$
+    \item Inner loop: i iterations in the $i^{th}$ iteration of the outer loop
+    \item Total number of iterations: $ \displaystyle \sum\limits_{i=1}^{\left\lfloor\sqrt{n}\right\rfloor}i=\frac{\left\lfloor\sqrt{n}\right\rfloor\left(\left\lfloor\sqrt{n}\right\rfloor+1\right)}{2}=\Theta (n)$
+    \end{itemize}
+  \end{itemize}
+\item Counting Iterations of Nested Loops
+  \begin{itemize}
+  \item \textbf{Example 4:}
+\begin{lstlisting}
+for (i=1; i<=n; k=k/2)
+  for (j=0; j<k; j++)
+    //inner loop body
+\end{lstlisting}
+    \begin{itemize}
+    \item Outer loop: n iterations.
+    \item Inner loop: k iterations in the $i^{th}$ iteration of the outer loop, where $k=\left\lfloor\frac{n}{2^{i}}\right\rfloor$, for $i=0$,...,n-1.
+    \item Total Number of iterations: $\displaystyle \sum\limits_{i=0}^{n-1}\left\lfloor\frac{n}{2^{i}}\right\rfloor =\Theta (n)$
+    $$n-1 < \left\lfloor n\right\rfloor \leq \sum\limits_{i=0}^{n-1}\left\lfloor\frac{n}{2^{i}}\right\rfloor \leq \sum\limits_{i=0}^{n-1}\frac{n}{2^{i}} = n\left(\frac{1-\left(\frac{1}{2}\right)^{n}}{1-\frac{1}{2}}\right) < 2n$$
+    \end{itemize}
+  \end{itemize}
+\item More Examples/Practice
+  \begin{itemize}
+  \item Determine the worst case time complexity of the following function:
+\begin{lstlisting}
+void linearInsertionSort(double a[], int n)
+{
+  int i, k;
+  for (k=1; k<n; ++k)
+  {
+    double temp =a[k];
+    for (i=k-1; i>=0 && a[i]>temp; --i)
+      a[i+1]=a[i];
+    a[i+1]=temp;
+  }
+}
+\end{lstlisting}
+  \end{itemize}

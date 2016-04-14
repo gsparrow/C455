@@ -1,0 +1,128 @@
+% vim: nu expandtab shiftwidth=2 softtabstop=2 foldmethod=marker
+
+\definecolor{LightCyan}{rgb}{0,1,1}
+\definecolor{DarkCyan}{rgb}{0,0.88,0.88}
+
+\lstset{language=C++,
+	frame=tbl,
+	tabsize=2,
+	showstringspaces=false,
+	commentstyle=\color{green},
+	keywordstyle=\color{blue},
+	stringstyle =\color{red}}
+
+\subsection{Euclidean Algorithm for GCD}
+\item Computing Greatest Common Divisors (GCD)
+  \begin{itemize}
+  \item The \textcolor{DarkCyan}{greatest common divisor} of two integers a and b
+    \begin{itemize}
+    \item denoted \textcolor{DarkCyan}{gcd(a,b)}
+    \item is the largest positive integer that divides both a and b
+    \end{itemize}
+  \item Euclid's algorithm for computing GCD
+    \begin{itemize}
+    \item One of the oldest algorithms in common use $(>2000$ years)
+    \item An important routine in the RSA encryption
+    \item Based on \textbf{Theorem:} Let m and n be positive integers, with $m\leq n$. Then $gcd(m,n)=gcd(n mod m,m)$
+      \begin{itemize}
+      \item Example: $gcd(260,412)=gcd(152,260)$ because $412\%260=152$
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\item Euclid's GCD algorithm \\
+\noindent\begin{minipage}[t]{0.5\textwidth} %left side
+\textbf{Recursive Version}
+\begin{lstlisting}
+int gcd(int m, int n)
+//assume 0<=m<=n
+{
+  if (m==0)
+    return n;
+  else
+    return gcd(n%m, m);
+}
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth} %right side
+\textbf{Iterative Version}
+\begin{lstlisting}
+int gcd(int m, int n)
+//assume 0<=m<=n
+{
+  int dividend=n;
+  int divisor=m;
+  while (divisor !=0)
+  {
+    int remainder=dividend%divisor;
+    dividend=divisor;
+    divisor=remainder;
+  }
+  return dividend;
+}
+\end{lstlisting}
+\end{minipage}
+\item Analyzing Euclid's Algorithm
+  \begin{itemize}
+  \item Consider he iterative version
+  \item Will focus on worst case time complexity
+  \item The number of iterations of the \textcolor{DarkCyan}{while} loop
+    \begin{itemize}
+    \item Equals the number of divisions executed in the lop
+    \item Example: input $n=412$, $m=260\rightarrow6$ divisions $\rightarrow6$ iterations
+    \end{itemize}
+  \end{itemize}
+  \begin{tabular}{l r r r r r r r}
+  \rowcolor{LightCyan} \textbf{Division\#} & 1   & 2   & 3   & 4   & 5  & 6  & End of loop \\
+  \rowcolor{DarkCyan} dividend            & 412 & 260 & 152 & 108 & 44 & 20 & 4 \\
+  \rowcolor{LightCyan} divisor            & 260 & 152 & 108 & 44  & 20 & 4  & 0 \\
+  \rowcolor{DarkCyan} remainder           & 152 & 108 & 44  & 20  & 4  & 0  &   \\
+  \end{tabular}
+\item Formal Analysis of Euclid's Algorithm
+  \begin{itemize}
+  \item Consider the Euclid algorithm on inputs \emph{m} and \emph{n}
+    \begin{itemize}
+    \item Assume $0\leq m\leq n$
+    \item Let $k$ denote the total number of divisions or iterations
+    \item Let $d_{i}$ be the divisor of the $i^{th}$ division from the last one.
+    \item For all $i=1$,...,$k-1$, $d_{i}=d_{i+2}$ mod $d_{i+1}$
+    \item [$\Rightarrow$] $d_{i} < d_{i+1}$ and $d_{i+1}=\left\lfloor\frac{d_{i+2}}{d_{i+1}}\right\rfloor d_{i+1}+d_{i}$
+    \end{itemize}
+  \end{itemize}
+  \begin{tabular}{l c c c c c c}
+  \rowcolor{LightCyan} \textbf{Division\#} & 1   & 2   & ...   & k-2   & k-1  & k (Last) \\
+  \rowcolor{DarkCyan} dividend            & $d_{k+1}=n$ & $d_{k}$ & ... & $d_{4}$ & $d_{3}$ & $d_{2}$ \\
+  \rowcolor{LightCyan} divisor            & $d_{k}=m$ & $d_{k-1}$ & ... & $d_{3}$  & $d_{2}$ & $d_{1}$ \\
+  \rowcolor{DarkCyan} remainder           & $d_{k-1}$ & $d_{k-2}$ & ...  & $d_{2}$  & $d_{1}$  & 0 \\
+  \end{tabular}
+\item Formal Analysis of Euclid's Algorithm
+  \begin{itemize}
+  \item Now find a \emph{good} lower bound on $d_{i}$'s
+    \begin{itemize}
+    \item $d_{1}\geq 1$   since a valid divisor must be nonzero
+    \item $d_{2}\geq 2$   since $d_{2}>d_{1}$ \& $d_{i}$'s are integers
+    \item $d_{i+2}\geq d_{i+1} +d_{i}$ since $d_{i+2}=\left\lfloor\frac{d_{i+2}}{d_{i+1}}\right\rfloor d_{i+1}+d_{i}$ and $\frac{d_{i+2}}{d_{i+1}}\geq 1$
+    \end{itemize}
+  \end{itemize}
+  \begin{tabular}{l c c c c c c c}
+  \rowcolor{LightCyan} \textbf{Division\#} & ... & $k-5$ & $k-4$ & $k-3$ & $k-2$  & $k-1$ & k (Last) \\
+  \rowcolor{DarkCyan} dividend & & $d_{7}$ & $d_{6}$ & $d_{5}$ & $d_{4}$ & $d_{3}$ & $d_{2}$ \\
+  \rowcolor{LightCyan} divisor & & $d_{6}$ & $d_{5}$ & $d_{4}$ & $d_{3}$ & $d_{2}$ & $d_{1}$ \\
+  \rowcolor{DarkCyan} divisor $>=$ & & 13 & 8 & 5 & 3 & 2 & 1 \\
+  \rowcolor{LightCyan} remainder & & $d_{5}$ & $d_{4}$ & $d_{3}$ & $d_{2}$ & $d_{1}$ & 0 \\
+  \end{tabular}
+\item Formal Analysis of Euclid's Algorithm
+  \begin{itemize}
+  \item Can prove by induction: $d_{i}\geq F_{i+1}$ for all $i\geq 1$
+    \begin{itemize}
+    \item Where $F_{i}$ is the $i^{th}$ Fibonacci number
+    \end{itemize}
+  \item Since $d_{k}=m$, we have 
+  \item [] $m\geq F_{k+1}=\frac{1}{\sqrt{5}}\left(\frac{1+\sqrt{5}}{2}\right)^{k+1} -\frac{1}{\sqrt{5}}\left(\frac{1-\sqrt{5}}{2}\right)^{k+1}$ 
+  \item [] $\Rightarrow m\geq\frac{1}{\sqrt{5}}\left(\frac{1+\sqrt{5}}{2}\right)^{k+1}-1$ 
+  \item [] $\Rightarrow k=O(\log{(m)})$
+  \item Worst case time complexity: O(log(min\{m,n\}))
+  \end{itemize}
+\item {\color{green}More Examples/Practice}
+  \begin{itemize}
+  \item What is the worst case time complexity of the recursive version of the Euclid’s algorithm?
+  \end{itemize}

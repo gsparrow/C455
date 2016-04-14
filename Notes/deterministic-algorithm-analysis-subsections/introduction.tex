@@ -1,0 +1,84 @@
+% vim: nu expandtab shiftwidth=2 softtabstop=2 foldmethod=marker
+
+\definecolor{LightCyan}{rgb}{0,1,1}
+\definecolor{DarkCyan}{rgb}{0,0.88,0.88}
+\lstset{language=C++,
+	frame=tb,
+	tabsize=2,
+	showstringspaces=false,
+	commentstyle=\color{green},
+	keywordstyle=\color{blue},
+	stringstyle =\color{red}}
+
+\subsection{Introduction}
+\item Elements of Algorithm Analysis
+  \begin{itemize}
+  \item Analyzing an algorithm is to determine the amount of resources needed to run it
+  \item Characterize the amount of resources as a function $$f:N\rightarrow[0,\infty)$$
+    \begin{itemize}
+    \item Value of $f(n)$ depends on types of complexity considered
+    \end{itemize}
+  \item Types of algorithm complexity are classified by
+    \begin{itemize}
+    \item Types of resources: time, space
+    \item Scenarios: worst case, average case, best case
+    \end{itemize}
+  \end{itemize}
+\item Types of Algorithm Complexity \\
+\begin{tabular}{p{2cm} p{5cm} p{5cm}}
+\rowcolor{LightCyan} & Time & Space \\
+\rowcolor{DarkCyan} Worst case & $f(n)=$ maximum number of basic operations the algorithm uses on a problem of size n. & $f(n)=$ maximum amount of memory the algorithm uses on a problem of size n. \\
+\rowcolor{LightCyan}  Average case & $f(n)=$ average number of basic operations the algorithm uses on a problem of size n. & $f(n)=$ average amount of memory the algorithm uses on a problem of size n. \\
+\rowcolor{DarkCyan}  Best case & $f(n)=$ minimum number of basic operations the algorithm uses on a problem of size n. & $f(n)=$ minimum amount of memory the algorithm uses on a problem of size n. \\
+\end{tabular}
+  \begin{itemize}
+  \item Basic Operations: operations that require a limited number of assembly code instructions aafter compilation
+  \end{itemize}
+\item Problem Size
+  \begin{itemize}
+  \item The size of an input to a problem is determined by the number of bits required to represent it
+  \item Problem size is determined by the size of its input
+    \begin{itemize}
+    \item Must be unlimited
+    \end{itemize}
+  \begin{tabular}{l l}
+  \rowcolor{LightCyan} Common Input Types & Problem Size \\
+  \rowcolor{DarkCyan} An integer N & $\log{(N)}$ \\
+  \rowcolor{LightCyan} An array of length N & N \\
+  \rowcolor{DarkCyan} A graph of N nodes & $N^{2}$
+  \end{tabular}
+  \end{itemize}
+\item Principles for Analyzing Time Complexity
+  \begin{itemize}
+  \item Each basic operation executes in constant time $\rightarrow$ time complexity O(1)
+  \item A sequence of a fixed number of basic operations executes in constant time
+  \item Time complexity of a sequence of code blocks is of the following form
+  \begin{tabular}{l}
+  \rowcolor{LightCyan} Basic Operations \\
+  \rowcolor{DarkCyan} Loop \\
+  \rowcolor{LightCyan}Basic Operations
+  \end{tabular}
+  \item[] is determined by time complexity of the loop block.
+  \end{itemize}
+\item Principles of Analyzing Space Complexity
+  \begin{itemize}
+  \item Only calculate \emph{extra} memory required
+    \begin{itemize}
+    \item For a function call, it's stack frame, which contains:
+      \begin{itemize}
+      \item local variables, parameter values,
+      \item return addresses, and space for returned value
+      \end{itemize}
+    \end{itemize}
+  \item Example 1:
+\begin{lstlisting}
+double max(double a[], int n) //array is passed as pointer
+{
+  double currentMax=a[0];    //variable of constant size
+  for (int i=0; i<n; i++)
+    if (a[i] > currentMax)
+      currentMax=a[i];
+  return currentMax;
+}
+\end{lstlisting}
+  \end{itemize}
