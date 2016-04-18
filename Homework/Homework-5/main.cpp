@@ -144,6 +144,7 @@ int menu(int my_array[])
   {
     throw 2;
   }
+  int my_int_array[length];
   std::cout << "Do you want to manually enter the values for the input array? (y/n): ";
   std::cin.clear();
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -193,8 +194,12 @@ int Hoare_partition(int a[], int first, int last) //{{{
   int i = first - 1,  j = last+1; 
   while (true)  
   {
+    //comparisons++;
     do
+    {
+      comparisons++;
       ++i;                  
+    }
     while (a[i] < pivot); 
     do
     {
@@ -202,22 +207,19 @@ int Hoare_partition(int a[], int first, int last) //{{{
       --j;                  
     }
     while (a[j] > pivot);
+    //comparisons++;
+    if (i<j) 
     {
-      comparisons++;
-      if (i<j) 
-      {
-        comparisons++;
-        swapValues (a[i], a[j]);
-      }
-      else
-        return j;  
+      swapValues (a[i], a[j]);
     }
+    else
+      return j;  
   }
 } //}}}
 
 void quicksort (int a[], int first, int last) //{{{
 {
-  comparisons++;
+  //comparisons++;
   if (last <= first)      //base case; 
     return;         //arrays of length<=1 are sorted        
   int p=Hoare_partition(a, first, last); 
