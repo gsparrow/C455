@@ -5,6 +5,7 @@
  */
 
 #include <iostream>
+#include <string.h>
 #include <chrono>
 #include <limits>
 #include <random>
@@ -19,6 +20,9 @@ unsigned long long comparisons=0; //the number of comparisons
 //This menu returns the length of the array.
 int menu(int my_array[]);
 
+//displays information on program options
+void display_help();
+
 int Hoare_partition(int a[], int first, int last);
 void quicksort (int a[], int first, int last);
 
@@ -31,11 +35,24 @@ void badsort(int a[], int n);
 
 /****************************** main function  ********************************/
 
-int main() 
+int main(int argc, char* argv[]) 
 {
+  bool verbose=false;
   const int my_array_beginning =0;
         int my_array_end       =0;
         int my_array[N]        ={0};
+  if (argc>1)
+  {
+    if (strcmp(argv[1],"--verbose")==0 || strcmp(argv[1],"-v")==0)
+    {
+      verbose=true;
+    }
+    else
+    {
+      display_help();
+      return 0;
+    }
+  }
   try
   {
     my_array_end=menu(my_array);
@@ -44,6 +61,15 @@ int main()
     {
       qsort_array[i]=my_array[i];
     }
+    if (verbose)
+    {
+      std::cout << "The array is as follows" << std::endl;
+      for (int i=0; i<my_array_end; i++)
+      {
+        std::cout << my_array[i] << " ";
+      }
+    }
+    std::cout << std::endl;
     comparisons=0;
     auto time_begin = std::chrono::high_resolution_clock::now();
     //I need to subtract 1 from the end of the array, or quicksort adds an extra element;
@@ -52,9 +78,12 @@ int main()
     std::chrono::duration<double, std::milli> time_total_in_ms = time_end - time_begin;
     std::cout << "This quicksort took " << time_total_in_ms.count() << " milliseconds to run." << std::endl;
     std::cout << "The effect of the sort is " << comparisons << " comparison operations." << std::endl;
-    for (int i=my_array_beginning; i<my_array_end; i++)
+    if (verbose)
     {
-      //std::cout << qsort_array[i] << " ";
+      for (int i=my_array_beginning; i<my_array_end; i++)
+      {
+        std::cout << qsort_array[i] << " ";
+      }
     }
     comparisons=0;
     time_begin = std::chrono::high_resolution_clock::now();
@@ -63,9 +92,12 @@ int main()
     time_total_in_ms = time_end - time_begin;
     std::cout << "This badsort took " << time_total_in_ms.count() << " milliseconds to run." << std::endl;
     std::cout << "The effect of the sort is " << comparisons << " comparison operations." << std::endl;
-    for (int i=my_array_beginning; i<my_array_end; i++)
+    if (verbose)
     {
-      //std::cout << my_array[i] << " ";
+      for (int i=my_array_beginning; i<my_array_end; i++)
+      {
+        std::cout << my_array[i] << " ";
+      }
     }
   }
   catch (int error_number) //{{{
@@ -108,7 +140,7 @@ int menu(int my_array[])
   {
     throw 1;
   }
-  else if (length >= N)
+  else if (length > N)
   {
     throw 2;
   }
@@ -131,12 +163,6 @@ int menu(int my_array[])
     {
       my_array[i]=my_distribution(my_engine);
     }
-    std::cout << "The randomly generated array is as follows" << std::endl;
-    for (int i=0; i<length; i++)
-    {
-      //std::cout << my_array[i] << " ";
-    }
-    std::cout << std::endl;
   }
   else if (manual =='y' || manual=='Y')
   {
@@ -147,12 +173,6 @@ int menu(int my_array[])
       if(!(std::cin >> my_array[i]))
         throw 4;
     }
-    std::cout << "You entered in the following array" << std::endl;
-    for (int i=0; i<length; i++)
-    {
-      //std::cout << my_array[i] << " ";
-    }
-    std::cout << std::endl;
   }
   else
   {
@@ -161,6 +181,11 @@ int menu(int my_array[])
   return length;
 }
 
+void display_help()
+{
+  std::cout << "The options for this program are as follows." << std::endl;
+  std::cout << "-v or --verbose: put the program in verbose mode and output all arrays" << std::endl;
+}
 
 int Hoare_partition(int a[], int first, int last) //{{{
 {
