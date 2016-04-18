@@ -2,7 +2,8 @@
 *.pdf
 *.aux
 *.log
-
+Homework/Homework-5/the_program.exe
+*.o
 #ignore vim undo files
 *.un~
 

@@ -1,0 +1,64 @@
+% vim: nu expandtab shiftwidth=2 softtabstop=2 foldmethod=marker
+\section{Homework 5}
+
+\lstset{language=C++,
+	frame=tb,
+	tabsize=2,
+	showstringspaces=false,
+	commentstyle=\color{green},
+	keywordstyle=\color{blue},
+	stringstyle =\color{red}}
+
+Upon completing this assignment, you will be able to empirically and theoretically analyze sorting algorithms
+
+\begin{enumerate}
+\item \textbf{Programming:} You are given C++ code for quicksort and another (very bad) sorting algorithm, called \textbf{badsort}. Modify the given code, so that
+  \begin{enumerate}
+  \item It will count the number of comparisons between objects in the input array for each sorting algorithm.
+  \item It will calculate the \emph{real execution time} of each sorting algorithm.
+  \item [] (Hint: use the function call \textbf{time(0)} to record the current time. Function \textbf{time()} is defined in the \textbf{ctime} library.)
+  \item It allows the user to enter the length of an input array to be sorted, and choose either to enter values or to generate random numbers for the array elements. It also allows the user to view the randomly generated array if he/she wants to. Make sure that it will generate different sequences of random numbers at different runs of the program.
+  \item It will call the two sorting algorithms on the same input array obtained from step (c) above, and display both the number of object comparisons and the real execution time for each sorting algorithm call. It also allows the user to view the output array for each sorting algorithm call if he/she wants to.
+  \end{enumerate}
+\item \textbf{Empirical Analysis:}
+  \begin{enumerate}
+  \item Run your program to sort an input array of \emph{n} random integers for \textbf{10} different values of \emph{n} in the range [10, 100]. Then report the number of comparisons of each sorting algorithm call in a table of the same format as Table 1 below.
+  \item Run your program to sort an input array of \emph{n} random integers for \textbf{5} different values of in the range [10000, 100000]. These runs must be done on the same computer. Then report the real execution time of each sorting algorithm call in a table of the same format as Table 2 below.
+  \item Draw a line graph (using Excel) that shows the number of comparisons of each sorting
+algorithm call from your experiments in part (2a) as well as the two functions $n^{2}$ and $\log{(n)}$. So, there will be four lines in this graph.
+  \item Draw a conclusion regarding the number of comparisons based on the graph, and draw another conclusion regarding the real execution time from your data collected in part 2b. \\
+  \begin{tabular}{c c c c c}\\\hline
+  n & quicksort & badsort & $n^{2}$ & $n\log{(n)}$ \\
+ 10 &           &         & 100     &              \\
+ 20 &           &         & 400     &              \\
+ 30 &           &         & 900     &              \\
+ 40 &           &         & 1600    &              \\
+ 50 &           &         & 2500    &              \\
+ 60 &           &         & 3600    &              \\
+ 70 &           &         & 4900    &              \\
+ 80 &           &         & 6400    &              \\
+ 90 &           &         & 8100    &              \\
+100 &           &         & 10000   &              \\
+  \end{tabular}\\
+  \begin{tabular}{l l l}\\\hline
+  n   & quicksort & badsort \\
+10000 &           &         \\
+70207 &           &         \\
+81198 &           &         \\
+87559 &           &         \\
+88787 &           &         \\
+  \end{tabular}
+  \end{enumerate}
+\item \textbf{Theoretical Analysis:}
+  \begin{enumerate}
+  \item Analyze the space complexity for the \textbf{badsort} algorithm.
+  \item Analyze the worst-case time complexity for the \textbf{badsort} algorithm. For this part, you will have to \emph{estimate} the total number of object comparisons made by badsort:
+    \begin{enumerate}
+    \item Try to find a good aymptotic upper bound on the total number of object comparisons made by badsort on an input array of length \emph{n}
+    \item Try to find a good asymptotic lower bound on the total number of object comparisons made by badsort on an input array of length \emph{n} in the \emph{reverse order}.
+    \end{enumerate}
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{Given C++ code}
+\lstinputlisting{Homework/Homework-5/C455-Sp16-Hw5-GivenCode.cpp}
