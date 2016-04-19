@@ -41,6 +41,7 @@ int main(int argc, char* argv[])
   const int my_array_beginning =0;
         int my_array_end       =0;
         int my_array[N]        ={0};
+        int qsort_array[N]     ={0};
   if (argc>1)
   {
     if (strcmp(argv[1],"--verbose")==0 || strcmp(argv[1],"-v")==0)
@@ -56,7 +57,6 @@ int main(int argc, char* argv[])
   try
   {
     my_array_end=menu(my_array);
-    int qsort_array[my_array_end];
     for (int i=0; i<my_array_end; i++)
     {
       qsort_array[i]=my_array[i];
