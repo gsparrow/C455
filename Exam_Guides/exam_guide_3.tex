@@ -1,0 +1,134 @@
+% vim: nu expandtab shiftwidth=2 softtabstop=2 foldmethod=marker
+
+\lstset{language=C++,
+	frame=tb,
+	tabsize=2,
+	showstringspaces=false,
+	commentstyle=\color{green},
+	keywordstyle=\color{blue},
+	stringstyle =\color{red}}
+
+\section{Final Exam Guide}
+
+\subsection{Mathematical Tools}
+  \begin{itemize}
+  \item Definition and properties of floor, ceiling and logarithmic functions
+    \begin{enumerate}
+    \item floor function
+      \begin{itemize}
+      \item $\left\lfloor x\right\rfloor$ is an integer
+      \item $\left\lfloor x\right\rfloor < x < \left\lfloor x\right\rfloor+1$
+      \item $\left\lfloor\sqrt{x}\right\rfloor < \sqrt{x} < \left\lfloor\sqrt{x}\right\rfloor+1$
+      \end{itemize}
+    \item ceiling function
+      \begin{itemize}
+      \item $\left\lceil x \right\rceil$ is an integer
+      \item $\left\lceil x \right\rceil > x > \left\lceil x \right\rceil-1$
+      \item $\left\lceil\sqrt{x}\right\rceil > \sqrt{x} > \left\lceil\sqrt{x}\right\rceil-1$
+      \end{itemize}
+    \end{enumerate}
+  \item Definition and properties of asymptotic notations, focus on: Big-Oh, Big-Omega, and Big-Theta
+    \begin{enumerate}
+    \item Big-Oh
+      \begin{itemize}
+      \item $f(n)=O(g(n)) \leftrightarrow$ backwards e constants c, $n_{0}$ $f(n) \leq cg(n)$ for all $n\geq n_{0}$
+      \item $\left\lceil\sqrt{n}\right\rceil=O(\sqrt{n})$ because $\left\lceil\sqrt{n}\right\rceil\leq\sqrt{n}+1\leq 2\sqrt{n}$ for all $n\geq 1$
+      \end{itemize}
+    \item Big-Omega
+      \begin{itemize}
+      \item $f(n)=Ohmega(g(n)) \leftrightarrow$ backwards e constants c, $n_{0}$ $f(n) \leq cg(n)$ for all $n\geq n_{0}$
+      \item $\left\lceil\sqrt{n}\right\rceil=Ohmega(\sqrt{n})$ because $\left\lceil\sqrt{n}\right\rceil\leq\sqrt{n}+1$ for all $n\geq 1$
+      \item Then $\left\lceil\sqrt{n}\right\rceil=\Theta(\sqrt{n})$
+      \end{itemize}
+    \item Big-Theta
+    \end{enumerate}
+  \item Recognize linear recurrence relations and its components (coefficients, nonhomogeneous terms)
+  \item Methods to solve recurrence relations (characteristic equation, backward substitution). How and when to use those methods?
+  \item Definition and properties of binary trees.
+    \begin{itemize}
+    \item Height of a tree with n nodes
+      \begin{itemize}
+      \item minimum $\left\lfloor\log{(n)}\right\rfloor$ (when the tree is balanced)
+      \item maximum $n-1$ (when it is in a straight line
+      \end{itemize}
+    \item Number of empty subtrees in a tree with n nodes is n+1
+    \item Number of leaves in a tree with n nodes is
+      \begin{itemize}
+      \item minimum 1 leaf
+      \item maximum $\left\lfloor\frac{n}{2}\right\rfloor$
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\subsection{Algorithm Analysis}
+  \begin{itemize}
+  \item How to count the number of iterations of a single loop, and  nested loops? (See sample questions in page 2 below)
+  \item How to analyze worst case space complexity of a function call
+    \begin{itemize}
+    \item To analyze space complexity, Two things you need to mention are
+      \begin{enumerate}
+      \item [1] The size of each stack frame.
+      \item [2] The maximum number of stack frames on the runtime stack
+      \end{enumerate}
+    \end{itemize}
+  \item How to analyze the best case \& worst case time complexities of an algorithm
+    \begin{itemize}
+    \item [***Note***] this is a focus of the exam, use the below as an example
+    \item Best Case time complexity $T(n)$ of an algorithm is the minimum running of that algorithm on any input of size n
+    \item Worst Case time complexity $T(n)$ of an algorithm is the maximum running of that algorithm on any input of size n
+    \end{itemize}
+  \item Understand the deterministic analysis of the following algorithms:
+    \begin{itemize}
+    \item Euclid's GCD
+    \item linear search
+    \item binary search
+    \item merge--sort
+    \item quicksort
+    \item binary tree traversal (print in order)
+    \item searching a binary search tree
+    \item insert a new node into a binary search tree
+    \end{itemize}
+  \item Understand the theorem for the lower bound of comparison-based sorting algorithms (Theorem 5.9.1 in the textbook)
+    \begin{itemize}
+    \item [***Note***] not a focus of the exam
+    \item Need to understand what it implies in the slides
+    \item Exercise $5.9.5$ in the textbook pages $278-279$ the answer is no for a because they use the word always.
+    \item The theory is only for the lower bound on the worst case time complexity of any comparison based sorting algorithm
+    \end{itemize}
+  \item Understand the probabilistic analysis of the following algorithms:
+    \begin{itemize}
+    \item [***NOTE***] only one big thing you need to remember is that in order to perform average case analysis for any algorithm.
+    \item I was correct that you use induction for this if you want.
+      \begin{itemize}
+      \item Assume the input is random
+      \item Estimate the expected running time of the algorithm
+      \end{itemize}
+    \item linear search
+    \item quicksort
+    \end{itemize}
+  \end{itemize}
+\subsection{sample questions}
+\begin{enumerate}
+\item How many times does the word ``Hi'' is printed out by the following loop, assuming variable n has been declared and given an arbitrary positive integer?
+  \begin{lstlisting}
+for (i=1; i*i<=n; i++)
+  cout << "Hi";
+  \end{lstlisting}
+  \begin{enumerate}
+  \item n
+  \item $\left\lfloor\sqrt{n}\right\rfloor$
+  \item $n\left\lfloor\sqrt{n}\right\rfloor$
+  \item $n^{2}$
+  \end{enumerate}
+\item How many times does the word ``Hi'' is printed out by the following loop, assuming variable n has been declared and given an arbitrary positive integer?
+  \begin{lstlisting}
+for (i=1, k=n; i<n; i++, k=k/2)
+  for (j=0; j<k; j++)
+    cout << "Hi";
+  \end{lstlisting}
+  \begin{enumerate}
+  \item $\sum\limits_{i=0}^{n-1}\left\lfloor\frac{n}{2^{i}}\right\rfloor$
+  \item n
+  \item $\frac{n}{2}$
+  \item $n^{2}$
+  \end{enumerate}
+\end{enumerate}

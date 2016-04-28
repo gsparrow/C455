@@ -11,4 +11,10 @@
 \contentsline {subsubsection}{\numberline {6.4.1}Binary Search}{37}{subsubsection.6.4.1}
 \contentsline {section}{\numberline {7}Homework 4}{38}{section.7}
 \contentsline {section}{\numberline {8}Homework 5}{41}{section.8}
-\contentsline {subsection}{\numberline {8.1}Given C++ code}{42}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.1}Given C++ code}{45}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}My C++ code}{47}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Makefile}{53}{subsection.8.3}
+\contentsline {section}{\numberline {9}Final Exam Guide}{54}{section.9}
+\contentsline {subsection}{\numberline {9.1}Mathematical Tools}{54}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Algorithm Analysis}{55}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.3}sample questions}{56}{subsection.9.3}

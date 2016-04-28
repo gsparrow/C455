@@ -8,8 +8,7 @@
 \usepackage{import}
 \usepackage{xcolor,colortbl} %lets me make colored rows and columns in tables
 \usepackage{listings} %lets me input c++ code easily
-
-%\includeonly{Notes/deterministic_algorithm_analysis}
+\usepackage{pgfplots}
 
 \def\mydate{\leavevmode\hbox{\the\year-\twodigits\month-\twodigits\day}}
 \def\twodigits#1{\ifnum#1<10 0\fi\the#1}
@@ -32,8 +31,9 @@
 \newpage
 \pdfbookmark[section]{\contentsname}{toc}
 \tableofcontents
+\listoftables
 
-\newpage
+%\newpage
 \include{hw01}
 
 \include{exam_guide_1}
@@ -49,4 +49,6 @@
 \include{hw04}
 
 \include{hw05}
+
+\include{exam_guide_3}
 \end{document}

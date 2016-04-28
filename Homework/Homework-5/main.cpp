@@ -4,6 +4,24 @@
  *      The purpose of this assignment is to perform empirical analysis of sorting algorithms
  */
 
+/* In the event of compiler failure, here is a makefile to copy and paste
+CXX=g++
+LINKER=$(CXX)
+CFLAGS=-o3 -std=c++11
+SRCC=main.cpp
+OBJ=main.o
+EXEC=a.out
+
+all:  $(EXEC)
+
+$(EXEC):  $(OBJ)
+	$(LINKER) -o $(EXEC) $(OBJ)
+%.o:%.cpp
+	$(CXX) $CFLAGS) -c $< -o $@
+clean:
+	rm -f $(EXEC) *.o
+*/
+
 #include <iostream>
 #include <string.h>
 #include <chrono>
